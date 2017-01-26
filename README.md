@@ -4,7 +4,10 @@ These files are used by the nightly servers to enable additional properties for 
 Putting changes in these files allows testing to take place without changing the default.
 
  * master.properties - Used for builds of the Sakai master branch
+ * master-mysql.sql - Used to do some post db load (MySQL) into the master database
+ 
  * 10.properties - Used for builds of the Sakai 10.x branch
  * 11.properties - Used for builds of the Sakai 11.x branch
+ * 11-mysql.sql - Used to do some post db load (MySQL) into the 11 database
  
  * experimental.properties - Used for experiemental builds of the Sakai master branch
