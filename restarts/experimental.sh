@@ -56,5 +56,5 @@ nohup bin/startup.sh
 if (( ${cleardb} == 1 )); then
   sleep 5m
   echo ${DBSCRIPT}
-  mysql -f -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLEXPER12DB} ${DBNAME} < "${DBSCRIPT}" &>> "${CATALINA_BASE}/logs/jenkins.log"
+  mysql -f -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLEXPER12DB} ${DBNAME} -e "source ${DBSCRIPT}"
 fi
