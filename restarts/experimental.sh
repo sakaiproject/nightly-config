@@ -54,7 +54,7 @@ nohup bin/startup.sh
 
 #Run this script if we're clearing the db 5 minutes after Sakai starts up.
 if (( ${cleardb} == 1 )); then
-  sleep 5m
+  sleep 15m
   echo ${DBSCRIPT}
   mysql -f -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLEXPER12DB} ${DBNAME} -e "source ${DBSCRIPT}"
 fi
