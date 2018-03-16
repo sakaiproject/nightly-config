@@ -6,6 +6,7 @@
 
 BUILD_ID=bin/startup.sh
 DBNAME=nightly_qa11
+DBSCRIPT="${WORKSPACE}/11-mysql.sql"
 
 cp 11.properties /var/sakai11-mysql/sakai/sakai.properties
 cd /var/sakai11-mysql
@@ -38,3 +39,10 @@ fi
 rm -rf work/Catalina logs/* webapps components shared/lib/ common/lib/sakai* lib temp/*
 tar xzf /tmp/sakai11x.tar.gz
 nohup bin/startup.sh
+
+if (( ${cleardb} == 1 )); then
+    if [ -f "${DBSCRIPT}" ]; then
+    	sleep 15m 
+        mysql -f -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA11DB} ${DBNAME} -e "source ${DBSCRIPT}"
+    fi
+fi
