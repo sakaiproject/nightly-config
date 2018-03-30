@@ -26,9 +26,9 @@ if (( (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); then
 	echo "Clearing database and assets"
 	rm -rf /var/sakai-assets/qa10-mysql/*
 
-	mysql -h ${MYSQL} -u ${DBNAME} -p${MYSQLQA10DB} -e "drop database ${DBNAME}"
+	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA10DB} -e "drop database ${DBNAME}"
 	sleep 5
-	mysql -h ${MYSQL} -u ${DBNAME} -p${MYSQLQA10DB} -e "create database ${DBNAME} character set utf8"
+	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA10DB} -e "create database ${DBNAME} character set utf8"
 fi
 rm -rf work/Catalina logs/* webapps components shared/lib/ common/lib/sakai* temp/*
 
