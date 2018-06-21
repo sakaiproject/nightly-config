@@ -44,10 +44,13 @@ fi
 rm -rf work/Catalina logs/* webapps components shared/lib/ lib temp/*
 
 tar xzf /tmp/trunkbuild.tar.gz
+
 #From evaluation trunk build
-tar zxf /tmp/evaluationbuild.tar.gz
-#From gradeebook ng trunk build
-#tar zxf /tmp/gradebookngbuild.tar.gz
+#Disable evaluation until https://jira.sakaiproject.org/browse/EVALSYS-1558 is fixed
+#tar zxf /tmp/evaluationbuild.tar.gz
+
+#Certification build
+tar zxf /tmp/certificationbuild.tar.gz .
 
 nohup bin/startup.sh
 
