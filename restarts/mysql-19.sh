@@ -17,7 +17,7 @@ sleep 30
 #Only run this between 0 and 4AM
 typeset -i chour=10#`/bin/date +"%H"`
 typeset -i dow=10#`/bin/date +"%u"`
-typeset -i dowclear=7;
+typeset -i dowclear=7
 typeset -i shour=0
 typeset -i ehour=5
 typeset -i cleardb=${CLEAR_DB:-0}
@@ -28,6 +28,7 @@ if (( (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); then
     echo "Dow is ${dow} clear on ${dowclear}"
     if (( ${dow} == ${dowclear} )); then
         cleardb=1
+    fi
 fi
 
 if (( ${cleardb} == 1 )); then
