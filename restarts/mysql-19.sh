@@ -14,10 +14,11 @@ cd ${CATALINA_BASE}
 bin/stop.sh -force || true
 sleep 30
 
-#Only run this between 0 and 4AM
+#Only run this between 0 and 5AM
 typeset -i chour=10#`/bin/date +"%H"`
 typeset -i dow=10#`/bin/date +"%u"`
-typeset -i dowclear=7
+# This is %u so 1 (Monday) - 7 (Sunday)
+typeset -i dowclear=1
 typeset -i shour=0
 typeset -i ehour=5
 typeset -i cleardb=${CLEAR_DB:-0}
