@@ -32,10 +32,12 @@ if (( ${cleardb} == 1 )); then
     echo "Clearing database and assets"
     #Remove Assets
 	rm -rf /var/sakai-assets/qa12-mysql/*
+    rm -rf sakai/elasticsearch/*
 
 	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA12DB} -e "drop database ${DBNAME}"
 	sleep 10
 	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA12DB} -e "create database ${DBNAME} character set utf8"    
+
 fi
 
 rm -rf work/Catalina logs/* webapps components shared/lib/ lib temp/* sakai/archive-unzip/*

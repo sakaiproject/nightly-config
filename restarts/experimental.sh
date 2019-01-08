@@ -39,6 +39,7 @@ if (( ${cleardb} == 1 )); then
      mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLEXPER12DB}  -e "create database ${DBNAME} character set utf8"
      #Remove Assets
      rm -rf /var/sakai-assets/trunk-experimental/*
+     rm -rf sakai/elasticsearch/*
 fi
 
 rm -rf work/Catalina logs/* webapps components shared/lib/ lib temp/*

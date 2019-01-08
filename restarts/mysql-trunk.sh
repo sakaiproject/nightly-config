@@ -32,6 +32,7 @@ if (( ${cleardb} == 1 )); then
     echo "Clearing database and assets"
     #Remove Assets
 	rm -rf /var/sakai-assets/trunk-mysql/*
+    rm -rf sakai/elasticsearch/*
 
 	mysql -h ${MYSQLDB}  -u ${DBNAME} -p${MYSQLQATRUNKDB} -e "drop database ${DBNAME}"
 	sleep 10

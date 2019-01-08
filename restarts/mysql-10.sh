@@ -25,6 +25,7 @@ if (( (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); then
 	#Remove Assets 
 	echo "Clearing database and assets"
 	rm -rf /var/sakai-assets/qa10-mysql/*
+    rm -rf sakai/elasticsearch/*
 
 	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA10DB} -e "drop database ${DBNAME}"
 	sleep 5

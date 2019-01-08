@@ -22,6 +22,7 @@ if (( (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); then
 	/usr/lib/oracle/12.1/client64/bin/sqlplus "trunk/trunk@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${ORACLEDB})(PORT=1521))(CONNECT_DATA=(SID=ORCL)))" @/usr/local/oracle/drop-oracle-tables.sql
 	#Remove Assets
 	rm -rf /var/sakai-assets/trunk-oracle/*
+    rm -rf sakai/elasticsearch/*
 fi
 
 rm -rf work/Catalina logs/* webapps components shared/lib/ lib temp/* sakai/archive-unzip/*

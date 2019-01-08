@@ -34,6 +34,7 @@ fi
 
 if (( ${cleardb} == 1 )); then
     echo "Clearing database and assets"
+    bin/clean-db.sh
     #Remove Assets
 	rm -rf /var/sakai-assets/qa19-mysql/*
 

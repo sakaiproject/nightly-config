@@ -30,6 +30,7 @@ fi
 if (( ${cleardb} == 1 )); then 
 	#Remove Assets
 	rm -rf /var/sakai-assets/sakaiqa11-mysql/*
+    rm -rf sakai/elasticsearch/*
 
 	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA11DB} -e "drop database ${DBNAME}"
 	sleep 10

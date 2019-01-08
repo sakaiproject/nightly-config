@@ -22,6 +22,7 @@ if (( (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); then
 	/usr/lib/oracle/12.1/client64/bin/sqlplus "qa19/qa19@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${ORACLEDB})(PORT=1521))(CONNECT_DATA=(SID=ORCL)))" @/usr/local/oracle/drop-oracle-tables.sql
 	#Remove Assets
 	rm -rf /var/sakai-assets/qa19-oracle/*
+    bin/clean-db.sh
 fi
 
 bin/clean-code.sh
