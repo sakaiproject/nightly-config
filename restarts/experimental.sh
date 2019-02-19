@@ -50,11 +50,12 @@ tar xzf /tmp/trunkbuild.tar.gz
 #Disable evaluation until https://jira.sakaiproject.org/browse/EVALSYS-1558 is fixed
 #tar zxf /tmp/evaluationbuild.tar.gz
 
-#Certification build
-tar zxf /tmp/certificationbuild.tar.gz .
+#Certification build if build exists
+if [ -e /tmp/certificationbuild.tar.gz ] ; then
+     tar zxf /tmp/certificationbuild.tar.gz .
+fi
 
 nohup bin/startup.sh
-
 
 #Run this script if we're clearing the db 5 minutes after Sakai starts up.
 if (( ${cleardb} == 1 )); then
