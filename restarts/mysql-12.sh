@@ -14,18 +14,22 @@ cd ${CATALINA_BASE}
 bin/catalina.sh stop -force || true
 sleep 30
 
-#Only run this between 0 and 4AM
+#Only run this between 0 and 5AM
 typeset -i chour=10#`/bin/date +"%H"`
-typeset -i cday=10#`/bin/date +"%u"`
-
+typeset -i dow=10#`/bin/date +"%u"`
+# This is %u so 1 (Monday) - 7 (Sunday)
+typeset -i dowclear=1
 typeset -i shour=0
 typeset -i ehour=5
 typeset -i cleardb=${CLEAR_DB:-0}
 
-echo "Current hour is ${chour}. Current day is ${cday}"
+echo "Current hour is ${chour}. Current day is ${dow}"
 
 if (( (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); then
-	cleardb=1
+    echo "Dow is ${dow} clear on ${dowclear}"
+    if (( ${dow} == ${dowclear} )); then
+        cleardb=1
+    fi
 fi
 
 if (( ${cleardb} == 1 )); then
