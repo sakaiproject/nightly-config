@@ -1,0 +1,505 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+        <link rel="stylesheet" href="cssjs/style.css">
+
+
+        <script type="text/javascript">
+
+
+            function getImage(pExistingImageID, pImageURL){
+                var img = document.createElement('img');
+                img.onload = function (evt) {
+                    document.getElementById(pExistingImageID).src=this.src;
+                    document.getElementById(pExistingImageID).width=this.width;
+                    document.getElementById(pExistingImageID).height=this.height;
+                }
+                img.src = pImageURL;
+                return false;
+            }
+
+function bodyOnLoad() {
+    getImage('qa10mysql', 'https://qa10-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa11mysql', 'https://qa11-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa12mysql', 'https://qa12-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa12oracle', 'https://qa12-oracle.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa19mysql', 'https://qa19-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa19oracle', 'https://qa19-oracle.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('trunkmysql', 'https://trunk-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('trunkoracle', 'https://trunk-oracle.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('experimental', 'https://experimental.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa1us', 'https://qa1-us.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa2us', 'https://qa2-us.nightly.sakaiproject.org/library/image/silk/accept.png');
+    return false;
+}
+        </script>
+
+        <title>Sakai - nightly servers list</title>
+    </head>
+    <body bgcolor="#FFFFFF" onload="bodyOnLoad()">
+
+        <h1>nightly2.sakaiproject.org</h1>
+        <h3>Available instances</h3>
+
+
+        <table class="responstable">
+
+            <tr>
+                <th>Status</th>
+                <th>Instance</th>
+                <th data-th="Driver details"><span>Description</th>
+                <th>Logs</th>
+                <th>Properties</th>
+            </tr>
+            <tr>
+                <td colspan=2><b>Sakai QA test servers</b><td>
+            </tr>
+            <tr>
+                <td><img id="qa1us" border="0" src="cancel.png"></td>
+                <td>
+                    <a href="https://qa1-us.nightly.sakaiproject.org/portal">19.1 on MySQL</a></td>
+                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakaiqa">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa1" aria-expanded="true" aria-controls="collapsesakaiqa1">
+                                        Sakai 19.1 server description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakaiqa1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa2">
+                                <div class="panel-body">
+                                    <p>Sakai 19.1 is the latest stable release.</p> <p>Data retention is managed manually for this QA server.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                    <td><a href="https://qa1-us.nightly.sakaiproject.org/logs/">19 QA Tomcat logs</a></td>
+                    <td>
+                        <a href="https://qa1-us.nightly.sakaiproject.org/sakai/sakai.properties">19 QA sakai.properties</a></td>
+            </tr>
+            <tr>
+                <td><img id="qa2us" border="0" src="cancel.png"></td>
+                <td>
+                    <a href="https://qa2-us.nightly.sakaiproject.org/portal">Sakai 12.6 on MySQL</a></td>
+                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakaiqa">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa2" aria-expanded="true" aria-controls="collapsesakaiqa2">
+                                        Sakai 12.6 server description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakaiqa2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa2">
+                                <div class="panel-body">
+                                    <p>Sakai 12.6 is the latest 12 maintenance release.</p> <p>Data retention is managed manually for this QA server.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                    <td><a href="https://qa2-us.nightly.sakaiproject.org/logs/">12 QA Tomcat logs</a></td>
+                    <td>
+                        <a href="https://qa2-us.nightly.sakaiproject.org/sakai/sakai.properties">12 QA sakai.properties</a></td>
+            </tr>
+
+            <tr>
+                <td><img src="https://qa01-sakai.marist.edu/library/image/silk/accept.png" border="0"></td>
+                <td>
+                    <a href="https://qa01-sakai.marist.edu/portal">Sakai 12 Jira testing (hosted by Marist)</a></td>
+                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describemarist">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsemarist" aria-expanded="true" aria-controls="collapsemarist">
+                                        Sakai 12 Jira testing qa server description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsemarist" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describemarist">
+                                <div class="panel-body">
+                                    <p>Sakai 12 is the next community supported release of Sakai. This QA server is the main QA instance for verifying Jiras after they have been merged into the 12 branch. This server keeps up with the latest fixes daily. Please note that Jiras which are not yet merged into the 12 branch need to be verified on one of the Trunk/Master servers before the branch manager will merge it back to 12.</p> <p>Data retention is managed manually for this QA server.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                    <td><a href="https://qa01-sakai.marist.edu/library/content/catalina.out">Marist server Tomcat logs</a></td>
+                    <td>
+                        <a href="https://qa01-sakai.marist.edu/library/content/local.properties.generic">Marist server sakai.properties</a></td>
+            </tr>
+
+            <tr>
+                <td colspan=3><b>20.x (Master) Test Instance(s) - Primary servers for QA testing fixed Jiras</b><td>
+            </tr>
+            <tr>
+                <td><img id="trunkmysql" border="0" src="cancel.png"></td>
+                <td><a href="https://trunk-mysql.nightly.sakaiproject.org/portal/">Trunk (master) on MySql</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakaimastermysql">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaimastermysql" aria-expanded="true" aria-controls="collapsesakaimastermysql">
+                                        Trunk/Master MySQL description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakaimastermysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimastermysql">
+                                <div class="panel-body">
+                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify <a href="https://jira.sakaiproject.org/issues/?filter=15796">improvements (bugs and features) which have been resolved but not tested</a>. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p><p>Issues with the 11/12 status field (in Jira) set to Merge will be merged into the 11/12 branch. Merging into the 11/12 branch is a manual process and not real time.</p> <p>This server and the trunk/master on Oracle are exactly the same, including property settings, except for which database it uses.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <a href="https://trunk-mysql.nightly.sakaiproject.org/logs/">mysql master Tomcat logs</a></td>
+                <td>
+                    <a href="https://trunk-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql master sakai.properties</a></td>
+            </tr>
+            <tr>
+                <td><img id="trunkoracle" border="0" src="cancel.png"></td>
+                <td><a href="https://trunk-oracle.nightly.sakaiproject.org/portal/">Trunk (master) on Oracle</a></td>
+                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakaimasteroracle">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaimasteroracle" aria-expanded="true" aria-controls="collapsesakaimasteroracle">
+                                        Trunk/Master Oracle description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakaimasteroracle" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimasteroracle">
+                                <div class="panel-body">
+                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify <a href="https://jira.sakaiproject.org/issues/?filter=15796">improvements (bugs and features) which have been resolved but not tested</a>. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p><p>Issues with the 11 status field (in Jira) set to Merge will be merged into the 11 branch. Merging into the 11 branch is a manual process and not real time.</p> <p>This server and the trunk/master on MySQL are exactly the same, including property settings, except for which database it uses.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                    <td><a href="https://trunk-oracle.nightly.sakaiproject.org/logs/">oracle master Tomcat logs</a></td>
+                    <td>
+                        <a href="https://trunk-oracle.nightly.sakaiproject.org/sakai/sakai.properties">oracle master sakai.properties</a></td>
+            </tr>
+            <tr>
+                <td><img id="experimental" border="0" src="cancel.png"></td>
+                <td><a href="https://experimental.nightly.sakaiproject.org/portal">Experimental Trunk (master) on MySql</a></td>
+                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakaimasterexperimental">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaimasterexperimental" aria-expanded="true" aria-controls="collapsesakaimasterexperimental">
+                                        Trunk/Master Experimental description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakaimasterexperimental" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimasterexperimental">
+                                <div class="panel-body">
+                                    <p>Experimental is the same as trunk/master for Oracle and for MySQL. It uses different properties for QA testing purposes, and sometimes additional Contrib modules or features which are turned off by default.</p><p>Experimental build includes the <a href="https://confluence.sakaiproject.org/display/EVALSYS/Home">Evaluations Contrib tool.</a></p><p>Please see the properties file.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://experimental.nightly.sakaiproject.org/logs/">experimental Tomcat logs</a></td>
+                <td>
+                    <a href="https://experimental.nightly.sakaiproject.org/sakai/sakai.properties">experimental sakai.properties</a></td>
+            </tr>
+            <tr>
+                <td colspan=2><b>19.x Test Instance(s)</b><td>
+            </tr>
+            <tr>
+                <td><img id="qa19mysql" border="0" src="cancel.png"></td>
+                <td><a href="https://qa19-mysql.nightly.sakaiproject.org/">19.x Maintenance Branch on MySql</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakai19mysql">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai19mysql" aria-expanded="true" aria-controls="collapsesakai19mysql">
+                                        19.x MySQL description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakai19mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai19mysql">
+                                <div class="panel-body">
+                                    <p>Contains the latest available patches for Sakai 19 that have been added since the tagged community release.</p><p>This branch is currently still unreleased.</p><p>The 19 branch is actively supported.</p><p>This server and the 19.x Maintenance Branch on Oracle are exactly the same, including property settings, except for which database it uses.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://qa19-mysql.nightly.sakaiproject.org/logs/">mysql 19.x Tomcat logs</a></td>
+                <td><a href="https://qa19-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 19.x sakai.properties</a></td>
+            </tr>
+
+            <tr>
+                <td><img id="qa19oracle" border="0" src="cancel.png"></td>
+                <td><a href="https://qa19-oracle.nightly.sakaiproject.org/">19.x Maintenance Branch on Oracle</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakai19oracle">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai19oracle" aria-expanded="true" aria-controls="collapsesakai19oracle">
+                                        19.x Oracle description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakai19oracle" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai19oracle">
+                                <div class="panel-body">
+                                    <p>Contains the latest available patches for Sakai 19 that have been added since the tagged community release.</p><p>This branch is currently still unreleased.</p><p>The 19 branch is actively supported.</p><p>This server and the 19.x Maintenance Branch on Oracle are exactly the same, including property settings, except for which database it uses.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://qa19-oracle.nightly.sakaiproject.org/logs/">oracle 19.x Tomcat logs</a></td>
+                <td><a href="https://qa19-oracle.nightly.sakaiproject.org/sakai/sakai.properties">oracle 19.x sakai.properties</a></td>
+            </tr>
+            <tr>
+                <td colspan=2><b>12.x Test Instance(s)</b><td>
+            </tr>
+            <tr>
+                <td><img id="qa12mysql" border="0" src="cancel.png"></td>
+                <td><a href="https://qa12-mysql.nightly.sakaiproject.org/">12.x Maintenance Branch on MySql</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakai12mysql">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai12mysql" aria-expanded="true" aria-controls="collapsesakai12mysql">
+                                        12.x MySQL description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakai12mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai12mysql">
+                                <div class="panel-body">
+                                    <p>Contains the latest available patches for Sakai 12 that have been added since the tagged community release.</p><p>This branch is currently still unreleased.</p><p>The 12 branch is actively supported.</p><p>This server and the 12.x Maintenance Branch on Oracle are exactly the same, including property settings, except for which database it uses.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://qa12-mysql.nightly.sakaiproject.org/logs/">mysql 12.x Tomcat logs</a></td>
+                <td><a href="https://qa12-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 12.x sakai.properties</a></td>
+            </tr>
+
+            <tr>
+                <td><img id="qa12oracle" border="0" src="cancel.png"></td>
+                <td><a href="https://qa12-oracle.nightly.sakaiproject.org/">12.x Maintenance Branch on Oracle</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakai12oracle">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai12oracle" aria-expanded="true" aria-controls="collapsesakai12oracle">
+                                        12.x Oracle description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakai12oracle" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai12oracle">
+                                <div class="panel-body">
+                                    <p>Contains the latest available patches for Sakai 12 that have been added since the tagged community release.</p><p>This branch is currently still unreleased.</p><p>The 12 branch is actively supported.</p><p>This server and the 12.x Maintenance Branch on Oracle are exactly the same, including property settings, except for which database it uses.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://qa12-oracle.nightly.sakaiproject.org/logs/">oracle 12.x Tomcat logs</a></td>
+                <td><a href="https://qa12-oracle.nightly.sakaiproject.org/sakai/sakai.properties">oracle 12.x sakai.properties</a></td>
+            </tr>
+            <tr>
+                <td colspan=2><b>11.x Test Instance(s)</b><td>
+            </tr>
+            <tr>
+                <td><img id="qa11mysql" border="0" src="cancel.png"></td>
+                <td><a href="https://qa11-mysql.nightly.sakaiproject.org/">11.x Maintenance Branch on MySql</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakai11mysql">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai11mysql" aria-expanded="true" aria-controls="collapsesakai11mysql">
+                                        11.x MySQL description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakai11mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai11mysql">
+                                <div class="panel-body">
+                                    <p>Contains the latest available patches for Sakai 11 that have been added since the tagged community release.</p><p>The latest community release is 11.4, therefore this branch contains <a href="https://jira.sakaiproject.org/issues/?filter=16071">fixes that have been applied post-11.4. </a> These improvements will be in 11.5 when it is released (TBD).</p><p>The 11 branch is actively supported.</p><p>This server and the 11.x Maintenance Branch on Oracle are exactly the same, including property settings, except for which database it uses.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://qa11-mysql.nightly.sakaiproject.org/logs/">mysql 11.x Tomcat logs</a></td>
+                <td><a href="https://qa11-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 11.x sakai.properties</a></td>
+            </tr>
+            <tr>
+                <td colspan=2><b>10.x Test Instance(s)<b><td>
+            </tr>
+            <tr>
+                <td><img id="qa10mysql" border="0" src="cancel.png"></td>
+                <td><a href="https://qa10-mysql.nightly.sakaiproject.org/">10.x Maintenance Branch on MySql</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakai10">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai10" aria-expanded="true" aria-controls="collapsesakai10">
+                                        10.x description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakai10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai10">
+                                <div class="panel-body">
+                                    <p>Contains the latest available patches for Sakai 10 that have been added since the tagged community release.</p><p>The latest community release is 10.7, therefore this branch contains <a href="https://jira.sakaiproject.org/issues/?filter=15922">fixes that have been applied post-10.7 </a>. </p> <p>Sakai 10 will no longer be supported the relase of Sakai 12, anticipated before end of 2017.</p> <p>Only blocker priority and security patches are considered for the 10.x branch.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                    <td><a href="https://qa10-mysql.nightly.sakaiproject.org/logs/">10.x Tomcat logs</a></td>
+                    <td><a href="https://qa10-mysql.nightly.sakaiproject.org/sakai/sakai.properties">10.x sakai.properties</a></td>
+            </tr>
+            <tr>
+                <td colspan=2><b>Latest Community supported release</b><td>
+            </tr>
+            <tr>
+                <td><img id="qa1us" border="0" src="cancel.png"></td>
+                <td>
+                    <a href="https://qa1-us.nightly.sakaiproject.org/portal">Sakai 11.4 on MySql</a></td>
+                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakaiqa">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa1" aria-expanded="true" aria-controls="collapsesakaiqa1">
+                                        Sakai 11 qa server description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakaiqa1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa1">
+                                <div class="panel-body">
+                                    <p>Sakai 11.4 is the latest community supported release of Sakai.</p> <p>Data retention is managed manually for this QA server.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                    <td><a href="https://qa1-us.nightly.sakaiproject.org/logs/">11 QA Tomcat logs</a></td>
+                    <td>
+                        <a href="https://qa1-us.nightly.sakaiproject.org/sakai/sakai.properties">11 QA sakai.properties</a></td>
+            </tr>
+
+            <tr>
+                <td colspan=2><b>Other servers</b><td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <a href="https://mail.nightly.sakaiproject.org">Mail Catcher</a></td>
+                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describemailcatcher">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsemailcatcher" aria-expanded="true" aria-controls="collapsemailcatcher">
+                                        Mail Catcher description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsemailcatcher" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describemailcatcher">
+                                <div class="panel-body">
+                                    <p>Mail Catcher catches all the email notifications sent from a Sakai qa server so that we can safely test email features without worrying about actual emails being sent, or the inconvenience of checking the log file (catalina.out) for messages.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                    <td></td>
+                    <td>
+                    </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <a href="https://jenkins.nightly.sakaiproject.org/">Jenkins</a><br>(Commit access to github project required)</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+
+            <tr>
+                <td>&nbsp;</td>
+                <td><a href="https://javadocs.nightly.sakaiproject.org/">Sakai API Javadocs</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </table>
+
+        <h3>Login information</h3>
+        You can either create an account on each server (which for most will be cleared out nightly) or use the sample users. Sakai's SampleUserDirectoryProvider is also used on every server creates sample users for testing external providers and course rosters.<br>
+
+        <p><b>All passwords are sakai (lowercase)</b></p>
+
+        <ul>
+            <li>"Student" user accounts</li>
+            <ul>
+                <li>student0001 to student0500 (student0001 - 0014 have defined first/last names, 0001-0007 have additional properties)</li>
+                <li>user1, user2, user3, student</li>
+            </ul>
+
+            <li>"Instructor" user accounts</li>
+            <ul>
+                <li>instructor, instructor1 instructor2</li>
+            </ul>
+
+            <li>"TA" user accounts</li>
+            <ul>
+                <li>ta, ta1, ta2, ta3</li>
+            </ul>
+
+        </ul>
+
+        Additionally any user that starts with "test" can login with the same password as the username no account needed.
+        For example: test123 (password test123)
+
+        There may exist other accounts for other testing purposes (like datest/datest for testing delegated access)
+
+        <h3>Restart Schedule:</h3>
+        <ul>
+            <li>Sakai trunk/master servers (MySql and Oracle) - Rebuilt daily at around 12PM and 12AM Eastern (Database cleared only at 12AM restart) </li>
+            <li>Sakai 19.x server (MySQL) - Rebuilt daily at around 1AM and 1PM Eastern. Database cleared weekly Monday morning. </li>
+            <li>Sakai 12.x server (MySQL) - Rebuilt daily at around 2PM and 2AM Eastern. Database cleared weekly Monday morning.</li>
+            <li>Experimental master server (MySQL) - Rebuilt daily at around 12:30PM and 12:30AM Eastern (Database cleared only once a week Sunday at 12:30AM restart) </li>
+        </ul>
+        <h3>Notes:</h3>
+        <ul>
+            <li>All times are U.S. Eastern timezone.</li>
+            <li>Generally the instance will be available within 30-60 minutes after the rebuild.</li>
+            <li>Database wipes only occur during the first build of the day.</li>
+            <li>Technical environment for nightlies: <ul>
+                    <li>(Common) Java 1.8.0_171, maven-3-2.5 (though maven-3.3.9 should also work), and either mysql 5.6.39 or Oracle SE One 12.1.0.2.v11 (12C)</li>
+                    <li>(10) Apache Tomcat 7.0.84</li>
+                    <li>(11, 12) Apache Tomcat 8.5.34</li>
+                    <li>(19, 20) Apache Tomcat 9.0.12</li>
+                </ul>
+
+            </li>
+        </ul>
+
+        <br>Problems? Contact sakai-core on <a href="https://groups.google.com/a/apereo.org/forum/#!forum/sakai-core">Google Groups</a> or on Slack at <a href="https://apereo.slack.com/">Apereo Slack</a> in #sakaidevs.
+        <br/><br/>
+
+
+    </body>
+</html>
