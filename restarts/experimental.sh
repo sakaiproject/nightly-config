@@ -47,8 +47,9 @@ rm -rf work/Catalina logs/* webapps components shared/lib/ lib temp/*
 tar xzf /tmp/trunkbuild.tar.gz
 
 #From evaluation trunk build
-#Disable evaluation until https://jira.sakaiproject.org/browse/EVALSYS-1558 is fixed
-#tar zxf /tmp/evaluationbuild.tar.gz
+if [ -e /tmp/evaluationbuild.tar.gz ] ; then
+	tar zxf /tmp/evaluationbuild.tar.gz
+fi
 
 #Certification build if build exists
 if [ -e /tmp/certificationbuild.tar.gz ] ; then
