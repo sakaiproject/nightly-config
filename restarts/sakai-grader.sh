@@ -5,9 +5,9 @@
 #  MYSQLQA19DB - Password for this database
 
 BUILD_ID=bin/startup.sh
-CATALINA_BASE=/var/sakai-grader-mysql
-DBSCRIPT="${WORKSPACE}/sakai-grader-mysql.sql"
-DBNAME=nightly_sakai_grader
+CATALINA_BASE=/var/sakai-grader
+DBSCRIPT="${WORKSPACE}/19-mysql.sql"
+DBNAME=sakai_grader
 
 cp 19.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
@@ -36,7 +36,7 @@ if (( ${cleardb} == 1 )); then
     echo "Clearing database and assets"
     bin/clean-db.sh
     #Remove Assets
-	rm -rf /var/sakai-assets/sakak-grader-mysql/*
+	rm -rf /var/sakai-assets/sakak-grader/*
 
 	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA19DB} -e "drop database ${DBNAME}"
 	sleep 10
