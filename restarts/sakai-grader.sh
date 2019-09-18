@@ -24,5 +24,5 @@ if (( ${cleardb} == 1 )); then
 fi
 
 bin/clean-code.sh
-tar xzf /tmp/sakai-grader-mysql.tar.gz
+tar xzf /tmp/sakai-grader.tar.gz
 nohup bin/start.sh
