@@ -8,6 +8,8 @@ BUILD_ID=bin/startup.sh
 CATALINA_BASE=/var/sakai-grader-mysql
 DBNAME=nightly_grader
 
+typeset -i cleardb=${CLEAR_DB:-0}
+
 cp 19.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
 bin/stop.sh -force || true
