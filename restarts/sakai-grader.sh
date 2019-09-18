@@ -2,12 +2,12 @@
 #  These include 
 #  CLEAR_DB - (1/0) 
 #  MYSQLDB - Host name for MySQL
-#  MYSQLQA19DB - Password for this database
+#  MYSQLGRADERDB - Password for this database
 
 BUILD_ID=bin/startup.sh
-CATALINA_BASE=/var/sakai-grader
-DBSCRIPT="${WORKSPACE}/19-mysql.sql"
-DBNAME=sakai_grader
+CATALINA_BASE=/var/sakai-grader-mysql
+DBSCRIPT="${WORKSPACE}/master-mysql.sql"
+DBNAME=nightly_sakai_grader
 
 cp 19.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
@@ -36,16 +36,16 @@ if (( ${cleardb} == 1 )); then
     echo "Clearing database and assets"
     bin/clean-db.sh
     #Remove Assets
-	rm -rf /var/sakai-assets/sakak-grader/*
+	rm -rf /var/sakai-assets/sakai-grader-mysql/*
 
-	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA19DB} -e "drop database ${DBNAME}"
+	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLGRADERDB} -e "drop database ${DBNAME}"
 	sleep 10
-	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA19DB} -e "create database ${DBNAME} character set utf8"    
+	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLGRADERDB} -e "create database ${DBNAME} character set utf8"    
 fi
 
 bin/clean-code.sh
 # rm -rf work/Catalina logs/* webapps components shared/lib/ lib temp/* sakai/archive-unzip/*
-tar xzf /tmp/sakai-grader.tar.gz
+tar xzf /tmp/sakai-grader-mysql.tar.gz
 nohup bin/start.sh
 
 if (( ${cleardb} == 1 )); then
