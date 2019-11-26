@@ -56,6 +56,11 @@ if [ -e /tmp/certificationbuild.tar.gz ] ; then
      tar zxf /tmp/certificationbuild.tar.gz .
 fi
 
+#Attendance build if build exists
+if [ -e /tmp/attendancebuild.tar.gz ] ; then
+     tar zxf /tmp/attendancebuild.tar.gz .
+fi
+
 nohup bin/startup.sh
 
 #Run this script if we're clearing the db 5 minutes after Sakai starts up.
