@@ -4,7 +4,7 @@
 #  MYSQLDB - Host name for MySQL
 #  MYSQLQA12DB - Password for this database
 
-TAG=12.7
+TAG=20.0-rc01
 BUILD_ID=bin/startup.sh
 CATALINA_BASE=/var/sakai-qa2-us-active
 DBSCRIPT="${WORKSPACE}/12-mysql.sql"
