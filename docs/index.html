@@ -57,6 +57,7 @@ function bodyOnLoad() {
                 <th>Instance</th>
                 <th data-th="Driver details"><span>Description</th>
                 <th>Logs</th>
+                <th>Tail Logs</th>
                 <th>Properties</th>
             </tr>
             <tr>
@@ -83,6 +84,7 @@ function bodyOnLoad() {
                         </div>
                     </div></td>
                     <td><a href="https://qa1-us.nightly.sakaiproject.org/logs/">19 QA Tomcat logs</a></td>
+                    <td><a href="https://qa1-us.nightly.sakaiproject.org/tail/">Tail 19 QA Catalint log</a></td>
                     <td>
                         <a href="https://qa1-us.nightly.sakaiproject.org/sakai/sakai.properties">19 QA sakai.properties</a></td>
             </tr>
@@ -107,6 +109,7 @@ function bodyOnLoad() {
                         </div>
                     </div></td>
                     <td><a href="https://qa2-us.nightly.sakaiproject.org/logs/">20 QA Tomcat logs</a></td>
+                    <td><a href="https://qa2-us.nightly.sakaiproject.org/tail/">Tail 20 QA Catalina Logs</a></td>
                     <td>
                         <a href="https://qa2-us.nightly.sakaiproject.org/sakai/sakai.properties">20 QA sakai.properties</a></td>
             </tr>
@@ -132,6 +135,7 @@ function bodyOnLoad() {
                         </div>
                     </div></td>
                     <td><a href="https://qa01-sakai.marist.edu/library/content/catalina.out">Marist server Tomcat logs</a></td>
+                    <td></td>
                     <td>
                         <a href="https://qa01-sakai.marist.edu/library/content/local.properties.generic">Marist server sakai.properties</a></td>
             </tr>
@@ -160,8 +164,8 @@ function bodyOnLoad() {
                         </div>
                     </div>
                 </td>
-                <td>
-                    <a href="https://trunk-mysql.nightly.sakaiproject.org/logs/">mysql master Tomcat logs</a></td>
+                <td><a href="https://trunk-mysql.nightly.sakaiproject.org/logs/">mysql master Tomcat logs</a></td>
+                <td><a href="https://trunk-mysql.nightly.sakaiproject.org/tail/">Tail mysql master Catalina log</a></td>
                 <td>
                     <a href="https://trunk-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql master sakai.properties</a></td>
             </tr>
@@ -185,6 +189,7 @@ function bodyOnLoad() {
                         </div>
                     </div></td>
                     <td><a href="https://trunk-oracle.nightly.sakaiproject.org/logs/">oracle master Tomcat logs</a></td>
+                    <td><a href="https://trunk-oracle.nightly.sakaiproject.org/tail/">Tail oracle master Catalina log</a></td>
                     <td>
                         <a href="https://trunk-oracle.nightly.sakaiproject.org/sakai/sakai.properties">oracle master sakai.properties</a></td>
             </tr>
@@ -209,6 +214,7 @@ function bodyOnLoad() {
                     </div>
                 </td>
                 <td><a href="https://experimental.nightly.sakaiproject.org/logs/">experimental Tomcat logs</a></td>
+                <td><a href="https://experimental.nightly.sakaiproject.org/tail/">Tail experimental Catalina log</a></td>
                 <td>
                     <a href="https://experimental.nightly.sakaiproject.org/sakai/sakai.properties">experimental sakai.properties</a></td>
             </tr>
@@ -237,6 +243,7 @@ function bodyOnLoad() {
                     </div>
                 </td>
                 <td><a href="https://qa20-mysql.nightly.sakaiproject.org/logs/">mysql 20.x Tomcat logs</a></td>
+                <td><a href="https://qa20-mysql.nightly.sakaiproject.org/tail/">Tail mysql 20.x Catalina log</a></td>
                 <td><a href="https://qa20-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 20.x sakai.properties</a></td>
             </tr>
             <tr>
@@ -264,6 +271,7 @@ function bodyOnLoad() {
                     </div>
                 </td>
                 <td><a href="https://qa19-mysql.nightly.sakaiproject.org/logs/">mysql 19.x Tomcat logs</a></td>
+                <td><a href="https://qa19-mysql.nightly.sakaiproject.org/tail/">Tail mysql 19.x Catalina log</a></td>
                 <td><a href="https://qa19-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 19.x sakai.properties</a></td>
             </tr>
             <tr>
@@ -291,6 +299,7 @@ function bodyOnLoad() {
                     </div>
                 </td>
                 <td><a href="https://qa12-mysql.nightly.sakaiproject.org/logs/">mysql 12.x Tomcat logs</a></td>
+                <td><a href="https://qa12-mysql.nightly.sakaiproject.org/tail/">Tail mysql 12.x Catalina log</a></td>
                 <td><a href="https://qa12-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 12.x sakai.properties</a></td>
             </tr>
 
@@ -319,6 +328,7 @@ function bodyOnLoad() {
                     </div>
                 </td>
                 <td><a href="https://qa11-mysql.nightly.sakaiproject.org/logs/">mysql 11.x Tomcat logs</a></td>
+                <td><a href="https://qa11-mysql.nightly.sakaiproject.org/tail/">Tail mysql 11.x Catalina log</a></td>
                 <td><a href="https://qa11-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 11.x sakai.properties</a></td>
             </tr>
             <tr>
@@ -346,6 +356,7 @@ function bodyOnLoad() {
                         </div>
                     </div></td>
                     <td></td>
+                    <td></td>
                     <td>
                     </td>
             </tr>
@@ -353,6 +364,7 @@ function bodyOnLoad() {
                 <td>&nbsp;</td>
                 <td>
                     <a href="https://jenkins.nightly.sakaiproject.org/">Jenkins</a><br>(Commit access to github project required)</td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -364,6 +376,7 @@ function bodyOnLoad() {
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
 
             <tr>
@@ -372,11 +385,13 @@ function bodyOnLoad() {
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
             </tr>
 
             <tr>
                 <td>&nbsp;</td>
                 <td><a href="http://grader-mysql.nightly.sakaiproject.org/">Sakai Grader Testbed</a></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
