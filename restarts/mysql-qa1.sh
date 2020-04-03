@@ -4,7 +4,7 @@
 #  MYSQLDB - Host name for MySQL
 #  MYSQLQA19DB - Password for this database
 
-TAG=19.3
+TAG=19.4
 BUILD_ID=bin/startup.sh
 CATALINA_BASE=/var/sakai-qa1-us-active
 DBSCRIPT="${WORKSPACE}/19-mysql.sql"
@@ -45,7 +45,7 @@ if (( ${cleardb} == 1 )); then
 fi
 
 bin/clean-code.sh
-tar xzf /tmp/sakai$TAG.tar.gz
+tar xzf /tmp/sakai-$TAG.tar.gz
 nohup bin/start.sh
 
 if (( ${cleardb} == 1 )); then
