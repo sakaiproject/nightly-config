@@ -4,13 +4,13 @@
 #  MYSQLDB - Host name for MySQL
 #  MYSQLQA12DB - Password for this database
 
-TAG=20.0-rc01
+TAG=${TAG}
 BUILD_ID=bin/startup.sh
 CATALINA_BASE=/var/sakai-qa2-us-active
 DBSCRIPT="${WORKSPACE}/12-mysql.sql"
 DBNAME=nightly_qa2
 
-cp 12.properties ${CATALINA_BASE}/sakai/sakai.properties
+cp 20.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
 bin/stop.sh -force || true
 sleep 30
@@ -45,7 +45,7 @@ if (( ${cleardb} == 1 )); then
 fi
 
 bin/clean-code.sh
-tar xzf /tmp/sakai$TAG.tar.gz
+tar xzf /tmp/sakai-qa2.tar.gz
 nohup bin/start.sh
 
 if (( ${cleardb} == 1 )); then
