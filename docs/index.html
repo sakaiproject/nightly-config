@@ -28,7 +28,6 @@
             }
 
 function bodyOnLoad() {
-    getImage('qa11mysql', 'https://qa11-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa12mysql', 'https://qa12-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa12oracle', 'https://qa12-oracle.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa19mysql', 'https://qa19-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
@@ -158,7 +157,7 @@ function bodyOnLoad() {
                             </div>
                             <div id="collapsesakaimastermysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimastermysql">
                                 <div class="panel-body">
-                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify <a href="https://jira.sakaiproject.org/issues/?filter=15796">improvements (bugs and features) which have been resolved but not tested</a>. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p><p>Issues with the 11/12 status field (in Jira) set to Merge will be merged into the 11/12 branch. Merging into the 11/12 branch is a manual process and not real time.</p> <p>This server and the trunk/master on Oracle are exactly the same, including property settings, except for which database it uses.</p>
+                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify <a href="https://jira.sakaiproject.org/issues/?filter=15796">improvements (bugs and features) which have been resolved but not tested</a>. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p><p>Issues with the 12/19 status field (in Jira) set to Merge will be merged into the 12/19 branch. Merging into the 12/19 branch is a manual process and not real time.</p> <p>This server and the trunk/master on Oracle are exactly the same, including property settings, except for which database it uses.</p>
                                 </div>
                             </div>
                         </div>
@@ -183,7 +182,7 @@ function bodyOnLoad() {
                             </div>
                             <div id="collapsesakaimasteroracle" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimasteroracle">
                                 <div class="panel-body">
-                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify <a href="https://jira.sakaiproject.org/issues/?filter=15796">improvements (bugs and features) which have been resolved but not tested</a>. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p><p>Issues with the 11 status field (in Jira) set to Merge will be merged into the 11 branch. Merging into the 11 branch is a manual process and not real time.</p> <p>This server and the trunk/master on MySQL are exactly the same, including property settings, except for which database it uses.</p>
+                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify <a href="https://jira.sakaiproject.org/issues/?filter=15796">improvements (bugs and features) which have been resolved but not tested</a>. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p><p>Issues with the 12 status field (in Jira) set to Merge will be merged into the 12 branch. Merging into the 12 branch is a manual process and not real time.</p> <p>This server and the trunk/master on MySQL are exactly the same, including property settings, except for which database it uses.</p>
                                 </div>
                             </div>
                         </div>
@@ -414,7 +413,7 @@ function bodyOnLoad() {
             <li>Database wipes only occur during the first build of the day.</li>
             <li>Technical environment for nightlies: <ul>
                     <li>(Common) Java 1.8.0_252, and either mysql 5.7.30 or Oracle SE One 12.1.0.2.v20 (12C)</li>
-                    <li>(11, 12) Maven 3.2.5 (Though newer versions may also work), Apache Tomcat 8.5.40</li>
+                    <li>(12) Maven 3.2.5 (Though newer versions may also work), Apache Tomcat 8.5.40</li>
                     <li>(19, 20) Maven 3.5.4, Apache Tomcat 9.0.19</li>
                 </ul>
 
