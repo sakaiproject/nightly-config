@@ -31,6 +31,7 @@ function bodyOnLoad() {
     getImage('qa12mysql', 'https://qa12-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa19mysql', 'https://qa19-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa20mysql', 'https://qa20-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa21mysql', 'https://qa21-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkmysql', 'https://trunk-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkoracle', 'https://trunk-oracle.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('experimental', 'https://experimental.nightly.sakaiproject.org/library/image/silk/accept.png');
@@ -215,6 +216,34 @@ function bodyOnLoad() {
                 <td><a href="https://experimental.nightly.sakaiproject.org/tail/">Tail experimental Catalina log</a></td>
                 <td>
                     <a href="https://experimental.nightly.sakaiproject.org/sakai/sakai.properties">experimental sakai.properties</a></td>
+            </tr>
+            <tr>
+                <td colspan=2><b>21.x Test Instance(s)</b><td>
+            </tr>
+            <tr>
+                <td><img id="qa21mysql" border="0" src="cancel.png"></td>
+                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/">21.x Maintenance Branch on MySql</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakai19mysql">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai19mysql" aria-expanded="true" aria-controls="collapsesakai19mysql">
+                                        21.x MySQL description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakai19mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai19mysql">
+                                <div class="panel-body">
+                                    <p>Contains the latest available patches for Sakai 21 that have been added since the tagged community release.</p><p>This branch is currently still unreleased.</p><p>The 19 branch is actively supported.</p><p>This server and the 21.x Maintenance Branch on Oracle are exactly the same, including property settings, except for which database it uses.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/logs/">mysql 21.x Tomcat logs</a></td>
+                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/tail/">Tail mysql 21.x Catalina log</a></td>
+                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 21.x sakai.properties</a></td>
             </tr>
             <tr>
                 <td colspan=2><b>20.x Test Instance(s)</b><td>
