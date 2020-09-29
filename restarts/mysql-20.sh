@@ -36,11 +36,11 @@ if (( ${cleardb} == 1 )); then
     echo "Clearing database and assets"
     bin/clean-db.sh
     #Remove Assets
-	rm -rf /var/sakai-assets/qa20-mysql/*
+	# rm -rf /var/sakai-assets/qa20-mysql/*
 
-	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA20DB} -e "drop database ${DBNAME}"
-	sleep 10
-	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA20DB} -e "create database ${DBNAME} character set utf8"    
+	# mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA20DB} -e "drop database ${DBNAME}"
+	# sleep 10
+	# mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA20DB} -e "create database ${DBNAME} character set utf8"    
 fi
 
 bin/clean-code.sh
