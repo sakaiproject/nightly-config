@@ -7,10 +7,10 @@
 TAG=${TAG}
 BUILD_ID=bin/startup.sh
 CATALINA_BASE=/var/sakai-qa1-us-active
-DBSCRIPT="${WORKSPACE}/19-mysql.sql"
+DBSCRIPT="${WORKSPACE}/master-mysql.sql"
 DBNAME=nightly_qa1
 
-cp 19.properties ${CATALINA_BASE}/sakai/sakai.properties
+cp 21.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
 bin/stop.sh -force || true
 sleep 30
@@ -36,12 +36,6 @@ fi
 if (( ${cleardb} == 1 )); then
     echo "Clearing database and assets"
     bin/clean-db.sh
-    #Remove Assets
-	rm -rf /var/sakai-assets/qa1-us//*
-
-	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA19DB} -e "drop database ${DBNAME}"
-	sleep 10
-	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA19DB} -e "create database ${DBNAME} character set utf8"    
 fi
 
 bin/clean-code.sh
