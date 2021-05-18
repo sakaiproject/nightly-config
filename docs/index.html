@@ -403,21 +403,20 @@ function bodyOnLoad() {
         <h3>Restart Schedule:</h3>
         <ul>
             <li>Sakai trunk/master servers (MySql and Oracle) - Rebuilt daily at around 12PM and 12AM Eastern (Database cleared only at 12AM restart) </li>
-            <li>Sakai 19.x server (MySQL) - Rebuilt daily at around 1AM and 1PM Eastern. Database cleared weekly Monday morning. </li>
-            <li>Sakai 12.x server (MySQL) - Rebuilt daily at around 2PM and 2AM Eastern. Database cleared weekly Monday morning.</li>
+            <li>Sakai 21.x, 20.x, 19.x server (MySQL) - Rebuilt when there are changes (merges), checks for changes around 1PM - 2AM Eastern. Database cleared weekly Monday morning.</li>
             <li>Experimental master server (MySQL) - Rebuilt daily at around 12:30PM and 12:30AM Eastern (Database cleared only once a week Sunday at 12:30AM restart) </li>
         </ul>
         <h3>Notes:</h3>
         <ul>
             <li>All times are U.S. Eastern timezone.</li>
             <li>Generally the instance will be available within 30-60 minutes after the rebuild.</li>
-            <li>Database wipes only occur during the first build of the day.</li>
-            <li>Technical environment for nightlies: <ul>
+            <li>Database wipes only occur during the first build of the day (in the early am).</li>
+            <li>Technical environment for nightlies: 
+                <ul>
                     <li>(Common) Java 1.8.0_252, and either mysql 5.7.30 or Oracle SE One 12.1.0.2.v20 (12C)</li>
-                    <li>(12) Maven 3.2.5 (Though newer versions may also work), Apache Tomcat 8.5.40</li>
+                    <li>(21, master) Maven 3.5.4, Apache Tomcat 9.0.49</li>
                     <li>(19, 20) Maven 3.5.4, Apache Tomcat 9.0.19</li>
                 </ul>
-
             </li>
         </ul>
 
