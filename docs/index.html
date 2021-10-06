@@ -28,10 +28,10 @@
             }
 
 function bodyOnLoad() {
-    getImage('qa12mysql', 'https://qa12-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa19mysql', 'https://qa19-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa20mysql', 'https://qa20-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa21mysql', 'https://qa21-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa22mysql', 'https://qa22-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkmysql', 'https://trunk-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkoracle', 'https://trunk-oracle.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('experimental', 'https://experimental.nightly.sakaiproject.org/library/image/silk/accept.png');
@@ -130,7 +130,7 @@ function bodyOnLoad() {
                             </div>
                             <div id="collapsesakaimastermysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimastermysql">
                                 <div class="panel-body">
-                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify improvements (bugs and features) which have been resolved but not tested. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p><p>Issues with the 12/19 status field (in Jira) set to Merge will be merged into the 12/19 branch. Merging into the 12/19 branch is a manual process and not real time.</p> <p>This server and the trunk/master on Oracle are exactly the same, including property settings, except for which database it uses.</p>
+                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify improvements (bugs and features) which have been resolved but not tested. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p>
                                 </div>
                             </div>
                         </div>
@@ -155,7 +155,7 @@ function bodyOnLoad() {
                             </div>
                             <div id="collapsesakaimasteroracle" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimasteroracle">
                                 <div class="panel-body">
-                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify improvements (bugs and features) which have been resolved but not tested. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p><p>Issues with the 12 status field (in Jira) set to Merge will be merged into the 12 branch. Merging into the 12 branch is a manual process and not real time.</p> <p>This server and the trunk/master on MySQL are exactly the same, including property settings, except for which database it uses.</p>
+                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify improvements (bugs and features) which have been resolved but not tested. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p>
                                 </div>
                             </div>
                         </div>
@@ -191,6 +191,34 @@ function bodyOnLoad() {
                     <a href="https://experimental.nightly.sakaiproject.org/sakai/sakai.properties">experimental sakai.properties</a></td>
             </tr>
             <tr>
+                <td colspan=2><b>22.x Test Instance(s)</b><td>
+            </tr>
+            <tr>
+                <td><img id="qa22mysql" border="0" src="cancel.png"></td>
+                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/">22.x Maintenance Branch on MySql</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakai19mysql">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai19mysql" aria-expanded="true" aria-controls="collapsesakai19mysql">
+                                        22.x MySQL description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakai19mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai19mysql">
+                                <div class="panel-body">
+                                    <p>Contains the latest available patches for Sakai 22 that have been added since the tagged community release.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/logs/">mysql 22.x Tomcat logs</a></td>
+                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/tail/">Tail mysql 22.x Catalina log</a></td>
+                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 22.x sakai.properties</a></td>
+            </tr>
+            <tr>
                 <td colspan=2><b>21.x Test Instance(s)</b><td>
             </tr>
             <tr>
@@ -208,7 +236,7 @@ function bodyOnLoad() {
                             </div>
                             <div id="collapsesakai19mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai19mysql">
                                 <div class="panel-body">
-                                    <p>Contains the latest available patches for Sakai 21 that have been added since the tagged community release.</p><p>This branch is currently still unreleased.</p><p>The 19 branch is actively supported.</p><p>This server and the 21.x Maintenance Branch on Oracle are exactly the same, including property settings, except for which database it uses.</p>
+                                    <p>Contains the latest available patches for Sakai 21 that have been added since the tagged community release.</p>
                                 </div>
                             </div>
                         </div>
@@ -236,7 +264,7 @@ function bodyOnLoad() {
                             </div>
                             <div id="collapsesakai19mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai19mysql">
                                 <div class="panel-body">
-                                    <p>Contains the latest available patches for Sakai 20 that have been added since the tagged community release.</p><p>This branch is currently still unreleased.</p><p>The 19 branch is actively supported.</p><p>This server and the 20.x Maintenance Branch on Oracle are exactly the same, including property settings, except for which database it uses.</p>
+                                    <p>Contains the latest available patches for Sakai 20 that have been added since the tagged community release.</p>
                                 </div>
                             </div>
                         </div>
@@ -264,7 +292,7 @@ function bodyOnLoad() {
                             </div>
                             <div id="collapsesakai19mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai19mysql">
                                 <div class="panel-body">
-                                    <p>Contains the latest available patches for Sakai 19 that have been added since the tagged community release.</p><p>This branch is currently still unreleased.</p><p>The 19 branch is actively supported.</p><p>This server and the 19.x Maintenance Branch on Oracle are exactly the same, including property settings, except for which database it uses.</p>
+                                    <p>Contains the latest available patches for Sakai 19 that have been added since the tagged community release.</p>
                                 </div>
                             </div>
                         </div>
@@ -273,34 +301,6 @@ function bodyOnLoad() {
                 <td><a href="https://qa19-mysql.nightly.sakaiproject.org/logs/">mysql 19.x Tomcat logs</a></td>
                 <td><a href="https://qa19-mysql.nightly.sakaiproject.org/tail/">Tail mysql 19.x Catalina log</a></td>
                 <td><a href="https://qa19-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 19.x sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td colspan=2><b>12.x Test Instance(s)</b><td>
-            </tr>
-            <tr>
-                <td><img id="qa12mysql" border="0" src="cancel.png"></td>
-                <td><a href="https://qa12-mysql.nightly.sakaiproject.org/">12.x Maintenance Branch on MySql</a></td>
-                <td>
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakai12mysql">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai12mysql" aria-expanded="true" aria-controls="collapsesakai12mysql">
-                                        12.x MySQL description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakai12mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai12mysql">
-                                <div class="panel-body">
-                                    <p>Contains the latest available patches for Sakai 12 that have been added since the tagged community release.</p><p>This branch is currently still unreleased.</p><p>The 12 branch is actively supported.</p><p>This server and the 12.x Maintenance Branch on Oracle are exactly the same, including property settings, except for which database it uses.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td><a href="https://qa12-mysql.nightly.sakaiproject.org/logs/">mysql 12.x Tomcat logs</a></td>
-                <td><a href="https://qa12-mysql.nightly.sakaiproject.org/tail/">Tail mysql 12.x Catalina log</a></td>
-                <td><a href="https://qa12-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 12.x sakai.properties</a></td>
             </tr>
 
             <tr>
