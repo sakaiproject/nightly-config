@@ -65,19 +65,19 @@ function bodyOnLoad() {
             <tr>
                 <td><img id="qa1us" border="0" src="cancel.png"></td>
                 <td>
-                    <a href="https://qa1-us.nightly.sakaiproject.org/portal">21.1 on MySQL</a></td>
+                    <a href="https://qa1-us.nightly.sakaiproject.org/portal">21.2 on MySQL</a></td>
                 <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="describesakaiqa">
                                 <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa1" aria-expanded="true" aria-controls="collapsesakaiqa1">
-                                        Sakai 21.1 server description
+                                        Sakai 21.2 server description
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapsesakaiqa1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa2">
                                 <div class="panel-body">
-                                    <p>Sakai 21.1 is the latest stable release.</p> <p>Data retention is managed manually for this QA server.</p>
+                                    <p>Sakai 21.2 is the latest stable release.</p> <p>Data retention is managed manually for this QA server.</p>
                                 </div>
                             </div>
                         </div>
@@ -90,19 +90,19 @@ function bodyOnLoad() {
             <tr>
                 <td><img id="qa2us" border="0" src="cancel.png"></td>
                 <td>
-                    <a href="https://qa2-us.nightly.sakaiproject.org/portal">20.4 on MySQL</a></td>
+                    <a href="https://qa2-us.nightly.sakaiproject.org/portal">20.5 on MySQL</a></td>
                 <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="describesakaiqa">
                                 <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa2" aria-expanded="true" aria-controls="collapsesakaiqa2">
-                                        Sakai 20.4 server description
+                                        Sakai 20.5 server description
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapsesakaiqa2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa2">
                                 <div class="panel-body">
-                                    <p>Sakai 20.4 is the latest 20 maintenance release.</p> <p>Data retention is managed manually for this QA server.</p>
+                                    <p>Sakai 20.5 is the latest 20 maintenance release.</p> <p>Data retention is managed manually for this QA server.</p>
                                 </div>
                             </div>
                         </div>
@@ -403,7 +403,7 @@ function bodyOnLoad() {
         <h3>Restart Schedule:</h3>
         <ul>
             <li>Sakai trunk/master servers (MySql and Oracle) - Rebuilt daily at around 12PM and 12AM Eastern (Database cleared only at 12AM restart) </li>
-            <li>Sakai 21.x, 20.x, 19.x server (MySQL) - Rebuilt when there are changes (merges), checks for changes around 1PM - 2AM Eastern. Database cleared weekly Monday morning.</li>
+            <li>Sakai 22.x, 21.x, 20.x, 19.x server (MySQL) - Rebuilt when there are changes (merges), checks for changes around 1PM - 2AM Eastern. Database cleared weekly Monday morning.</li>
             <li>Experimental master server (MySQL) - Rebuilt daily at around 12:30PM and 12:30AM Eastern (Database cleared only once a week Sunday at 12:30AM restart) </li>
         </ul>
         <h3>Notes:</h3>
@@ -413,9 +413,15 @@ function bodyOnLoad() {
             <li>Database wipes only occur during the first build of the day (in the early am).</li>
             <li>Technical environment for nightlies: 
                 <ul>
-                    <li>(Common) Java 1.8.0_252, and either mysql 5.7.30 or Oracle SE One 12.1.0.2.v20 (12C)</li>
-                    <li>(21, master) Maven 3.5.4, Apache Tomcat 9.0.49</li>
-                    <li>(19, 20) Maven 3.5.4, Apache Tomcat 9.0.19</li>
+                    <li>(Common) Java 1.8.0_312 (Temurin)</li>
+                    <li>(Common) Java 11.0.13 (Temurin)</li>
+                    <li>(Common) Maven 3.8.4</li>
+                    <li>(Common) Mysql 5.7.30 or Oracle SE One 12.1.0.2.v20 (12C)</li>
+                    <li>Sakai master - Tomcat 9.0.54 - Java 11.0.13</li>
+                    <li>Sakai 22 - Tomcat 9.0.54 - Java 11.0.13</li>
+                    <li>Sakai 21 - Tomcat 9.0.37 - Java 1.8.0_312</li>
+                    <li>Sakai 20 - Tomcat 9.0.37 - Java 1.8.0_312</li>
+                    <li>Sakai 19 - Tomcat 9.0.19 - Java 1.8.0_312</li>
                 </ul>
             </li>
         </ul>
