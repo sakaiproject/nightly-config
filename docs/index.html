@@ -90,19 +90,19 @@ function bodyOnLoad() {
             <tr>
                 <td><img id="qa2us" border="0" src="cancel.png"></td>
                 <td>
-                    <a href="https://qa2-us.nightly.sakaiproject.org/portal">20.5 on MySQL</a></td>
+                    <a href="https://qa2-us.nightly.sakaiproject.org/portal">22.0 on MySQL</a></td>
                 <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="describesakaiqa">
                                 <h4 class="panel-title">
                                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa2" aria-expanded="true" aria-controls="collapsesakaiqa2">
-                                        Sakai 20.5 server description
+                                        Sakai 22.0 server description
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapsesakaiqa2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa2">
                                 <div class="panel-body">
-                                    <p>Sakai 20.5 is the latest 20 maintenance release.</p> <p>Data retention is managed manually for this QA server.</p>
+                                    <p>Sakai 22.0 is the latest 22 maintenance release.</p> <p>Data retention is managed manually for this QA server.</p>
                                 </div>
                             </div>
                         </div>
@@ -278,32 +278,6 @@ function bodyOnLoad() {
                 <td colspan=2><b>19.x Test Instance(s)</b><td>
             </tr>
             <tr>
-                <td><img id="qa19mysql" border="0" src="cancel.png"></td>
-                <td><a href="https://qa19-mysql.nightly.sakaiproject.org/">19.x Maintenance Branch on MySql</a></td>
-                <td>
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakai19mysql">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai19mysql" aria-expanded="true" aria-controls="collapsesakai19mysql">
-                                        19.x MySQL description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakai19mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai19mysql">
-                                <div class="panel-body">
-                                    <p>Contains the latest available patches for Sakai 19 that have been added since the tagged community release.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td><a href="https://qa19-mysql.nightly.sakaiproject.org/logs/">mysql 19.x Tomcat logs</a></td>
-                <td><a href="https://qa19-mysql.nightly.sakaiproject.org/tail/">Tail mysql 19.x Catalina log</a></td>
-                <td><a href="https://qa19-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 19.x sakai.properties</a></td>
-            </tr>
-
-            <tr>
                 <td colspan=2><b>Other servers</b><td>
             </tr>
 
@@ -416,10 +390,10 @@ function bodyOnLoad() {
                     <li>(Common) Java 1.8.0_312 (Temurin)</li>
                     <li>(Common) Java 11.0.13 (Temurin)</li>
                     <li>(Common) Maven 3.8.4</li>
-                    <li>(Common) Mysql 5.7.30 or Oracle SE One 12.1.0.2.v20 (12C)</li>
-                    <li>Sakai master - Tomcat 9.0.54 - Java 11.0.13</li>
-                    <li>Sakai 22 - Tomcat 9.0.54 - Java 11.0.13</li>
-                    <li>Sakai 21 - Tomcat 9.0.37 - Java 1.8.0_312</li>
+                    <li>(Common) Mysql 5.7.37, Oracle 19, MariaDB 10.6.7, MySQL 8.0.28</li>
+                    <li>Sakai master - Tomcat 9.0.62 - Java 11.0.13</li>
+                    <li>Sakai 22 - Tomcat 9.0.62 - Java 11.0.13</li>
+                    <li>Sakai 21 - Tomcat 9.0.62 - Java 1.8.0_312</li>
                     <li>Sakai 20 - Tomcat 9.0.37 - Java 1.8.0_312</li>
                     <li>Sakai 19 - Tomcat 9.0.19 - Java 1.8.0_312</li>
                 </ul>
