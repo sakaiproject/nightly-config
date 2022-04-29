@@ -15,10 +15,16 @@ typeset -i cday=10#`/bin/date +"%u"`
 
 typeset -i shour=0
 typeset -i ehour=4
+typeset -i cleardb=${CLEAR_DB:-0}
 
 echo "Current hour is ${chour}. Current day is ${cday}"
 
 if (( (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); then
+	cleardb=1
+fi
+
+if (( ${cleardb} == 1 )); then
+    echo "Clearing database and assets"
 	/usr/lib/oracle/12.1/client64/bin/sqlplus "trunk/trunk@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${ORACLEDB})(PORT=1521))(CONNECT_DATA=(SID=ORCL)))" @/usr/local/oracle/drop-oracle-tables.sql
 	#Remove Assets
 	rm -rf /var/sakai-assets/trunk-oracle/*
