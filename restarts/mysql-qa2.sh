@@ -1,17 +1,18 @@
-#Most of these variables need to be defined externally (in Jenkins)
-#  These include 
+#!/usr/bin/zsh
+
+# Jenkins variables
 #  CLEAR_DB - (1/0) 
-#  MYSQLDB - Host name for MySQL
-#  MYSQLQA12DB - Password for this database
 
-TAG=${TAG}
-BUILD_ID=bin/startup.sh
 CATALINA_BASE=/var/sakai-qa2-us-active
-DBSCRIPT="${WORKSPACE}/12-mysql.sql"
-DBNAME=nightly_qa2
-
-cp 20.properties ${CATALINA_BASE}/sakai/sakai.properties
+cp 22.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
+
+DBSCRIPT="${WORKSPACE}/22-mysql.sql"
+DBHOST=$(echo $PROPERTIES["url@javax.sql.BaseDataSource"] | $GREP_CMD -oP '(?<=:\/\/).+(?=:)')
+DBNAME=$(echo $PROPERTIES["url@javax.sql.BaseDataSource"] | $GREP_CMD -oP '(?<=\/)\w+(?=\?)')
+DBUSER=$PROPERTIES["username@javax.sql.BaseDataSource"]
+DBPASS=$PROPERTIES["password@javax.sql.BaseDataSource"]
+
 bin/stop.sh -force || true
 sleep 30
 
@@ -36,12 +37,6 @@ fi
 if (( ${cleardb} == 1 )); then
     echo "Clearing database and assets"
     bin/clean-db.sh
-    #Remove Assets
-	rm -rf /var/sakai-assets/qa1-us//*
-
-	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA12DB} -e "drop database ${DBNAME}"
-	sleep 10
-	mysql -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA12DB} -e "create database ${DBNAME} character set utf8"    
 fi
 
 bin/clean-code.sh
@@ -51,6 +46,6 @@ nohup bin/start.sh
 if (( ${cleardb} == 1 )); then
     if [ -f "${DBSCRIPT}" ]; then
     	sleep 15m 
-        mysql -f -h ${MYSQLDB} -u ${DBNAME} -p${MYSQLQA12DB} ${DBNAME} -e "source ${DBSCRIPT}"
+        mysql -f -h ${DBHOST} -u ${DBUSER} -p${DBPASS} ${DBNAME} -e "source ${DBSCRIPT}"
     fi
 fi
