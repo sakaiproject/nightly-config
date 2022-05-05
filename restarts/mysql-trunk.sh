@@ -41,6 +41,8 @@ bin/clean-code.sh
 tar xzf /tmp/trunkbuild.tar.gz
 bin/start.sh
 
+sleep 5m
+
 if (( ${cleardb} == 1 )); then
     if [ -f "${DBSCRIPT}" ]; then
         sleep 15m 
