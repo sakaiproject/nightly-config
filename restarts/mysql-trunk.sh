@@ -3,6 +3,9 @@
 # Jenkins variables
 #  CLEAR_DB - (1/0) 
 
+# BUILD_ID is neeeded so Jenkins ProcessTreeKiller doesn't kill of sakai
+export BUILD_ID=$BUILD_ID
+
 CATALINA_BASE=/var/trunk-mysql
 cp master.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
