@@ -39,7 +39,7 @@ fi
 
 bin/clean-code.sh
 tar xzf /tmp/trunkbuild.tar.gz
-bin/start.sh
+nohup bin/start.sh &
 
 if (( ${cleardb} == 1 )); then
     if [ -f "${DBSCRIPT}" ]; then
