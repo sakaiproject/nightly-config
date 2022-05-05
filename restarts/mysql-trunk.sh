@@ -4,9 +4,9 @@
 #  CLEAR_DB - (1/0) 
 
 # BUILD_ID is neeeded so Jenkins ProcessTreeKiller doesn't kill of sakai
-export BUILD_ID=$BUILD_ID
+BUILD_ID="bin/start.sh"
 
-CATALINA_BASE=/var/trunk-mysql
+CATALINA_BASE="/var/trunk-mysql"
 cp master.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
 source bin/common.sh
@@ -43,8 +43,6 @@ fi
 bin/clean-code.sh
 tar xzf /tmp/trunkbuild.tar.gz
 bin/start.sh
-
-sleep 5m
 
 if (( ${cleardb} == 1 )); then
     if [ -f "${DBSCRIPT}" ]; then
