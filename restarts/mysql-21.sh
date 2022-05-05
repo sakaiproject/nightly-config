@@ -2,6 +2,8 @@
 
 # Jenkins variables
 #  CLEAR_DB - (1/0) 
+#  BUILD_ID is neeeded so Jenkins ProcessTreeKiller doesn't kill off sakai
+BUILD_ID="bin/start.sh"
 
 CATALINA_BASE=/var/sakai21-mysql
 cp 21.properties ${CATALINA_BASE}/sakai/sakai.properties
@@ -44,7 +46,7 @@ fi
 
 bin/clean-code.sh
 tar xzf /tmp/sakai21x.tar.gz
-nohup bin/start.sh
+bin/start.sh
 
 if (( ${cleardb} == 1 )); then
     if [ -f "${DBSCRIPT}" ]; then
