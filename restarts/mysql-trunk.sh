@@ -29,15 +29,13 @@ typeset -i cleardb=${CLEAR_DB:-0}
 
 echo "Current hour is ${chour}. Current day is ${cday}"
 
-if (( (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); then
+if (( ${cleardb} != 1 && (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); then
 	cleardb=1
 fi
 
 if (( ${cleardb} == 1 )); then
     echo "Clearing database and assets"
     bin/clean-db.sh
-    #Remove Assets
-	rm -rf /var/sakai-assets/trunk-mysql/*
 fi
 
 bin/clean-code.sh
