@@ -8,6 +8,7 @@ BUILD_ID="bin/start.sh"
 CATALINA_BASE=/var/sakai-qa2-us-active
 cp 22.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
+source bin/common.sh
 
 DBSCRIPT="${WORKSPACE}/22-mysql.sql"
 DBHOST=$(echo $PROPERTIES["url@javax.sql.BaseDataSource"] | $GREP_CMD -oP '(?<=:\/\/).+(?=:)')
