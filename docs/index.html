@@ -28,11 +28,13 @@
             }
 
 function bodyOnLoad() {
-    getImage('qa19mysql', 'https://qa19-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa20mysql', 'https://qa20-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa21mysql', 'https://qa21-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa22mysql', 'https://qa22-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa23maria', 'https://qa23-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa23mysql8', 'https://qa23-mysql8.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('trunkmysql8', 'https://trunk-mysql8.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('trunkmaria', 'https://trunk-maria.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkmysql', 'https://trunk-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkoracle', 'https://trunk-oracle.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('experimental', 'https://experimental.nightly.sakaiproject.org/library/image/silk/accept.png');
@@ -117,6 +119,58 @@ function bodyOnLoad() {
                 <td colspan=3><b>23 (Master) Test Instance(s) - Primary servers for QA testing fixed Jiras</b><td>
             </tr>
             <tr>
+                <td><img id="trunkmaria" border="0" src="cancel.png"></td>
+                <td><a href="https://trunk-maria.nightly.sakaiproject.org/portal/">Trunk (master) on MariaDB</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakaimastermaria">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaimastermaria" aria-expanded="true" aria-controls="collapsesakaimastermaria">
+                                        Trunk/Master MySQL description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakaimastermaria" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimastermaria">
+                                <div class="panel-body">
+                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify improvements (bugs and features) which have been resolved but not tested. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://trunk-maria.nightly.sakaiproject.org/logs/">MariaDB master Tomcat logs</a></td>
+                <td><a href="https://trunk-maria.nightly.sakaiproject.org/tail/">Tail MariaDB master Catalina log</a></td>
+                <td>
+                    <a href="https://trunk-maria.nightly.sakaiproject.org/sakai/sakai.properties">MariaDB  master sakai.properties</a></td>
+            </tr>
+            <tr>
+                <td><img id="trunkmysql8" border="0" src="cancel.png"></td>
+                <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/portal/">Trunk (master) on MySql</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakaimastermysql">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaimastermysql" aria-expanded="true" aria-controls="collapsesakaimastermysql">
+                                        Trunk/Master MySQL description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakaimastermysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimastermysql">
+                                <div class="panel-body">
+                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify improvements (bugs and features) which have been resolved but not tested. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/logs/">mysql master Tomcat logs</a></td>
+                <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/tail/">Tail mysql master Catalina log</a></td>
+                <td>
+                    <a href="https://trunk-mysql8.nightly.sakaiproject.org/sakai/sakai.properties">mysql master sakai.properties</a></td>
+            </tr>
+            <tr>
                 <td><img id="trunkmysql" border="0" src="cancel.png"></td>
                 <td><a href="https://trunk-mysql.nightly.sakaiproject.org/portal/">Trunk (master) on MySql</a></td>
                 <td>
@@ -196,18 +250,18 @@ function bodyOnLoad() {
             </tr>
             <tr>
                 <td><img id="qa23maria" border="0" src="cancel.png"></td>
-                <td><a href="https://qa23-maria.nightly.sakaiproject.org/">23.x Maintenance Branch on MySql</a></td>
+                <td><a href="https://qa23-maria.nightly.sakaiproject.org/">23.x Maintenance Branch on MariaDB</a></td>
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakai19mysql">
+                            <div class="panel-heading" role="tab" id="describesakai23maria">
                                 <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai19mysql" aria-expanded="true" aria-controls="collapsesakai19mysql">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai23maria" aria-expanded="true" aria-controls="collapsesakai23maria">
                                         23.x MySQL description
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapsesakai23mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai23mysql">
+                            <div id="collapsesakai23maria" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai23maria">
                                 <div class="panel-body">
                                     <p>Contains the latest available patches for Sakai 23 that have been added since the tagged community release.</p>
                                 </div>
@@ -215,9 +269,34 @@ function bodyOnLoad() {
                         </div>
                     </div>
                 </td>
-                <td><a href="https://qa23-maria.nightly.sakaiproject.org/logs/">mysql 23.x Tomcat logs</a></td>
-                <td><a href="https://qa23-maria.nightly.sakaiproject.org/tail/">Tail mysql 23.x Catalina log</a></td>
-                <td><a href="https://qa23-maria.nightly.sakaiproject.org/sakai/sakai.properties">mysql 23.x sakai.properties</a></td>
+                <td><a href="https://qa23-maria.nightly.sakaiproject.org/logs/">Tomcat logs</a></td>
+                <td><a href="https://qa23-maria.nightly.sakaiproject.org/tail/">Tail Catalina log</a></td>
+                <td><a href="https://qa23-maria.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
+            </tr>
+            <tr>
+                <td><img id="qa23mysql8" border="0" src="cancel.png"></td>
+                <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/">23.x Maintenance Branch on MySql 8</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakai23mysql8">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai23mysql8" aria-expanded="true" aria-controls="collapsesakai23mysql8">
+                                        23.x MySQL description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakai23mysql8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai23mysql8">
+                                <div class="panel-body">
+                                    <p>Contains the latest available patches for Sakai 23 that have been added since the tagged community release.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/logs/">Tomcat logs</a></td>
+                <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/tail/">Tail Catalina log</a></td>
+                <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
             </tr>
             <tr>
                 <td colspan=2><b>22.x Test Instance(s)</b><td>
@@ -228,14 +307,14 @@ function bodyOnLoad() {
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakai19mysql">
+                            <div class="panel-heading" role="tab" id="describesakai22mysql">
                                 <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai19mysql" aria-expanded="true" aria-controls="collapsesakai19mysql">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai22mysql" aria-expanded="true" aria-controls="collapsesakai22mysql">
                                         22.x MySQL description
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapsesakai19mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai19mysql">
+                            <div id="collapsesakai22mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai22mysql">
                                 <div class="panel-body">
                                     <p>Contains the latest available patches for Sakai 22 that have been added since the tagged community release.</p>
                                 </div>
@@ -243,9 +322,9 @@ function bodyOnLoad() {
                         </div>
                     </div>
                 </td>
-                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/logs/">mysql 22.x Tomcat logs</a></td>
-                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/tail/">Tail mysql 22.x Catalina log</a></td>
-                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 22.x sakai.properties</a></td>
+                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/logs/">Tomcat logs</a></td>
+                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/tail/">Tail Catalina log</a></td>
+                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
             </tr>
             <tr>
                 <td colspan=2><b>21.x Test Instance(s)</b><td>
@@ -256,14 +335,14 @@ function bodyOnLoad() {
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakai19mysql">
+                            <div class="panel-heading" role="tab" id="describesakai21mysql">
                                 <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai19mysql" aria-expanded="true" aria-controls="collapsesakai19mysql">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai21mysql" aria-expanded="true" aria-controls="collapsesakai21mysql">
                                         21.x MySQL description
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapsesakai19mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai19mysql">
+                            <div id="collapsesakai21mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai21mysql">
                                 <div class="panel-body">
                                     <p>Contains the latest available patches for Sakai 21 that have been added since the tagged community release.</p>
                                 </div>
@@ -271,9 +350,9 @@ function bodyOnLoad() {
                         </div>
                     </div>
                 </td>
-                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/logs/">mysql 21.x Tomcat logs</a></td>
-                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/tail/">Tail mysql 21.x Catalina log</a></td>
-                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 21.x sakai.properties</a></td>
+                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/logs/">Tomcat logs</a></td>
+                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/tail/">Tail Catalina log</a></td>
+                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
             </tr>
             <tr>
                 <td colspan=2><b>20.x Test Instance(s)</b><td>
@@ -284,14 +363,14 @@ function bodyOnLoad() {
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakai19mysql">
+                            <div class="panel-heading" role="tab" id="describesakai20mysql">
                                 <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai19mysql" aria-expanded="true" aria-controls="collapsesakai19mysql">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai20mysql" aria-expanded="true" aria-controls="collapsesakai20mysql">
                                         20.x MySQL description
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapsesakai19mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai19mysql">
+                            <div id="collapsesakai20mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai20mysql">
                                 <div class="panel-body">
                                     <p>Contains the latest available patches for Sakai 20 that have been added since the tagged community release.</p>
                                 </div>
@@ -299,9 +378,9 @@ function bodyOnLoad() {
                         </div>
                     </div>
                 </td>
-                <td><a href="https://qa20-mysql.nightly.sakaiproject.org/logs/">mysql 20.x Tomcat logs</a></td>
-                <td><a href="https://qa20-mysql.nightly.sakaiproject.org/tail/">Tail mysql 20.x Catalina log</a></td>
-                <td><a href="https://qa20-mysql.nightly.sakaiproject.org/sakai/sakai.properties">mysql 20.x sakai.properties</a></td>
+                <td><a href="https://qa20-mysql.nightly.sakaiproject.org/logs/">Tomcat logs</a></td>
+                <td><a href="https://qa20-mysql.nightly.sakaiproject.org/tail/">Tail Catalina log</a></td>
+                <td><a href="https://qa20-mysql.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
             </tr>
             <tr>
                 <td colspan=2><b>Other servers</b><td>
@@ -414,14 +493,14 @@ function bodyOnLoad() {
             <li>Technical environment for nightlies: 
                 <ul>
                     <li>(Common) Java 1.8.0_312 (Temurin)</li>
-                    <li>(Common) Java 11.0.13 (Temurin)</li>
+                    <li>(Common) Java 11.0.16.1 (Temurin)</li>
                     <li>(Common) Maven 3.8.4</li>
                     <li>(Common) Mysql 5.7.37, Oracle 19, MariaDB 10.6.7, MySQL 8.0.28</li>
-                    <li>Sakai master - Tomcat 9.0.62 - Java 11.0.13</li>
+                    <li>Sakai master - Tomcat 9.0.69 - Java 11.0.16</li>
+                    <li>Sakai 23 - Tomcat 9.0.69 - Java 11.0.16</li>
                     <li>Sakai 22 - Tomcat 9.0.62 - Java 11.0.13</li>
                     <li>Sakai 21 - Tomcat 9.0.62 - Java 1.8.0_312</li>
                     <li>Sakai 20 - Tomcat 9.0.37 - Java 1.8.0_312</li>
-                    <li>Sakai 19 - Tomcat 9.0.19 - Java 1.8.0_312</li>
                 </ul>
             </li>
         </ul>
