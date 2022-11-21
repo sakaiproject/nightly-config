@@ -31,7 +31,7 @@ function bodyOnLoad() {
     getImage('qa20mysql', 'https://qa20-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa21mysql', 'https://qa21-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa22mysql', 'https://qa22-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
-    getImage('qa23maria', 'https://qa23-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa23maria', 'https://qa23-maria.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa23mysql8', 'https://qa23-mysql8.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkmysql8', 'https://trunk-mysql8.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkmaria', 'https://trunk-maria.nightly.sakaiproject.org/library/image/silk/accept.png');
@@ -146,7 +146,7 @@ function bodyOnLoad() {
             </tr>
             <tr>
                 <td><img id="trunkmysql8" border="0" src="cancel.png"></td>
-                <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/portal/">Trunk (master) on MySql</a></td>
+                <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/portal/">Trunk (master) on MySQL 8</a></td>
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -172,7 +172,7 @@ function bodyOnLoad() {
             </tr>
             <tr>
                 <td><img id="trunkmysql" border="0" src="cancel.png"></td>
-                <td><a href="https://trunk-mysql.nightly.sakaiproject.org/portal/">Trunk (master) on MySql</a></td>
+                <td><a href="https://trunk-mysql.nightly.sakaiproject.org/portal/">Trunk (master) on MySQL</a></td>
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -222,7 +222,7 @@ function bodyOnLoad() {
             </tr>
             <tr>
                 <td><img id="experimental" border="0" src="cancel.png"></td>
-                <td><a href="https://experimental.nightly.sakaiproject.org/portal">Experimental Trunk (master) on MySql</a></td>
+                <td><a href="https://experimental.nightly.sakaiproject.org/portal">Experimental Trunk (master) on MySQL</a></td>
                 <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="describesakaimasterexperimental">
@@ -275,7 +275,7 @@ function bodyOnLoad() {
             </tr>
             <tr>
                 <td><img id="qa23mysql8" border="0" src="cancel.png"></td>
-                <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/">23.x Maintenance Branch on MySql 8</a></td>
+                <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/">23.x Maintenance Branch on MySQL 8</a></td>
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -303,7 +303,7 @@ function bodyOnLoad() {
             </tr>
             <tr>
                 <td><img id="qa22mysql" border="0" src="cancel.png"></td>
-                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/">22.x Maintenance Branch on MySql</a></td>
+                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/">22.x Maintenance Branch on MySQL</a></td>
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -331,7 +331,7 @@ function bodyOnLoad() {
             </tr>
             <tr>
                 <td><img id="qa21mysql" border="0" src="cancel.png"></td>
-                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/">21.x Maintenance Branch on MySql</a></td>
+                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/">21.x Maintenance Branch on MySQL</a></td>
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -359,7 +359,7 @@ function bodyOnLoad() {
             </tr>
             <tr>
                 <td><img id="qa20mysql" border="0" src="cancel.png"></td>
-                <td><a href="https://qa20-mysql.nightly.sakaiproject.org/">20.x Maintenance Branch on MySql</a></td>
+                <td><a href="https://qa20-mysql.nightly.sakaiproject.org/">20.x Maintenance Branch on MySQL</a></td>
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -481,7 +481,7 @@ function bodyOnLoad() {
 
         <h3>Restart Schedule:</h3>
         <ul>
-            <li>Sakai trunk/master servers (MySql and Oracle) - Rebuilt daily at around 12PM and 12AM Eastern (Database cleared only at 12AM restart) </li>
+            <li>Sakai trunk/master servers (MySQL and Oracle) - Rebuilt daily at around 12PM and 12AM Eastern (Database cleared only at 12AM restart) </li>
             <li>Sakai 22.x, 21.x, 20.x server (MySQL) - Rebuilt when there are changes (merges), checks for changes around 1PM - 2AM Eastern. Database cleared weekly Monday morning.</li>
             <li>Experimental master server (MySQL) - Rebuilt daily at around 12:30PM and 12:30AM Eastern (Database cleared only once a week Sunday at 12:30AM restart) </li>
         </ul>
