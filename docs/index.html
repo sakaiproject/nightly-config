@@ -63,59 +63,6 @@ function bodyOnLoad() {
                 <th>Properties</th>
             </tr>
             <tr>
-                <td colspan=3><b>Latest Community Supported Releases</b><td>
-            </tr>
-            <tr>
-                <td><img id="qa1us" border="0" src="cancel.png"></td>
-                <td>
-                    <a href="https://qa1-us.nightly.sakaiproject.org/portal">21.4 on MySQL</a></td>
-                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakaiqa">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa1" aria-expanded="true" aria-controls="collapsesakaiqa1">
-                                        Sakai 21.4 server description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakaiqa1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa2">
-                                <div class="panel-body">
-                                    <p>Sakai 21.4 is the latest stable release.</p> <p>Data retention is managed manually for this QA server.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div></td>
-                    <td><a href="https://qa1-us.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                    <td><a href="https://qa1-us.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                    <td>
-                        <a href="https://qa1-us.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td><img id="qa2us" border="0" src="cancel.png"></td>
-                <td>
-                    <a href="https://qa2-us.nightly.sakaiproject.org/portal">22.1 on MySQL</a></td>
-                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakaiqa">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa2" aria-expanded="true" aria-controls="collapsesakaiqa2">
-                                        Sakai 22.1 server description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakaiqa2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa2">
-                                <div class="panel-body">
-                                    <p>Sakai 22.1 is the latest 22 maintenance release.</p> <p>Data retention is managed manually for this QA server.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div></td>
-                    <td><a href="https://qa2-us.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                    <td><a href="https://qa2-us.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                    <td>
-                        <a href="https://qa2-us.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
                 <td colspan=3><b>24 (Master) Test Instance(s) - Primary servers for QA testing fixed Jiras</b><td>
             </tr>
             <tr>
@@ -172,7 +119,7 @@ function bodyOnLoad() {
             </tr>
             <tr>
                 <td><img id="trunkmysql" border="0" src="cancel.png"></td>
-                <td><a href="https://trunk-mysql.nightly.sakaiproject.org/portal/">Trunk (master) on MySQL</a></td>
+                <td><a href="https://trunk-mysql.nightly.sakaiproject.org/portal/">Trunk (master) on MySQL 5.7 (deprecated)</a></td>
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -222,7 +169,7 @@ function bodyOnLoad() {
             </tr>
             <tr>
                 <td><img id="experimental" border="0" src="cancel.png"></td>
-                <td><a href="https://experimental.nightly.sakaiproject.org/portal">Experimental Trunk (master) on MySQL</a></td>
+                <td><a href="https://experimental.nightly.sakaiproject.org/portal">Experimental Trunk (master) on MySQL 5.7</a></td>
                 <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="describesakaimasterexperimental">
@@ -303,7 +250,7 @@ function bodyOnLoad() {
             </tr>
             <tr>
                 <td><img id="qa22mysql" border="0" src="cancel.png"></td>
-                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/">22.x Maintenance Branch on MySQL</a></td>
+                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/">22.x Maintenance Branch on MySQL 5.7</a></td>
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -327,11 +274,36 @@ function bodyOnLoad() {
                 <td><a href="https://qa22-mysql.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
             </tr>
             <tr>
+                <td><img id="qa2us" border="0" src="cancel.png"></td>
+                <td>
+                    <a href="https://qa2-us.nightly.sakaiproject.org/portal">22.1 on MySQL 5.7</a></td>
+                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakaiqa">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa2" aria-expanded="true" aria-controls="collapsesakaiqa2">
+                                        Sakai 22.1 server description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakaiqa2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa2">
+                                <div class="panel-body">
+                                    <p>Sakai 22.1 is the latest 22 maintenance release.</p> <p>Data retention is managed manually for this QA server.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                    <td><a href="https://qa2-us.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                    <td><a href="https://qa2-us.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                    <td>
+                        <a href="https://qa2-us.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
+            </tr>
+            <tr>
                 <td colspan=2><b>21.x Test Instance(s)</b><td>
             </tr>
             <tr>
                 <td><img id="qa21mysql" border="0" src="cancel.png"></td>
-                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/">21.x Maintenance Branch on MySQL</a></td>
+                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/">21.x Maintenance Branch on MySQL 5.7</a></td>
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
@@ -355,11 +327,36 @@ function bodyOnLoad() {
                 <td><a href="https://qa21-mysql.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
             </tr>
             <tr>
+                <td><img id="qa1us" border="0" src="cancel.png"></td>
+                <td>
+                    <a href="https://qa1-us.nightly.sakaiproject.org/portal">21.4 on MySQL 5.7</a></td>
+                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakaiqa">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa1" aria-expanded="true" aria-controls="collapsesakaiqa1">
+                                        Sakai 21.4 server description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakaiqa1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa2">
+                                <div class="panel-body">
+                                    <p>Sakai 21.4 is the latest stable release.</p> <p>Data retention is managed manually for this QA server.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                    <td><a href="https://qa1-us.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                    <td><a href="https://qa1-us.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                    <td>
+                        <a href="https://qa1-us.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
+            </tr>
+            <tr>
                 <td colspan=2><b>20.x Test Instance(s)</b><td>
             </tr>
             <tr>
                 <td><img id="qa20mysql" border="0" src="cancel.png"></td>
-                <td><a href="https://qa20-mysql.nightly.sakaiproject.org/">20.x Maintenance Branch on MySQL</a></td>
+                <td><a href="https://qa20-mysql.nightly.sakaiproject.org/">20.x Maintenance Branch on MySQL 5.7</a></td>
                 <td>
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                         <div class="panel panel-default">
