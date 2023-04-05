@@ -30,12 +30,14 @@ typeset -i cleardb=${CLEAR_DB:-0}
 echo "Current hour is ${chour}. Current day is ${cday}"
 
 if (( ${cleardb} != 1 && (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); then
-	cleardb=1
+    cleardb=1
 fi
 
 if (( ${cleardb} == 1 )); then
-    echo "Clearing database and assets"
-    bin/clean-db.sh
+    # echo "Clearing database and assets"
+    # bin/clean-db.sh
+    echo "DB wipe temporarily disabled"
+    cleardb=0
 fi
 
 bin/clean-code.sh
