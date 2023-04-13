@@ -37,7 +37,6 @@ function bodyOnLoad() {
     getImage('trunkmaria', 'https://trunk-maria.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkmysql', 'https://trunk-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkoracle', 'https://trunk-oracle.nightly.sakaiproject.org/library/image/silk/accept.png');
-    getImage('experimental', 'https://experimental.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa1us', 'https://qa1-us.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa2us', 'https://qa2-us.nightly.sakaiproject.org/library/image/silk/accept.png');
     return false;
@@ -166,31 +165,6 @@ function bodyOnLoad() {
                     <td><a href="https://trunk-oracle.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
                     <td>
                         <a href="https://trunk-oracle.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td><img id="experimental" border="0" src="cancel.png"></td>
-                <td><a href="https://experimental.nightly.sakaiproject.org/portal">Experimental Trunk (master) on MySQL 5.7</a></td>
-                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakaimasterexperimental">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaimasterexperimental" aria-expanded="true" aria-controls="collapsesakaimasterexperimental">
-                                        Trunk/Master Experimental description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakaimasterexperimental" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimasterexperimental">
-                                <div class="panel-body">
-                                    <p>Experimental is the same as trunk/master for Oracle and for MySQL. It uses different properties for QA testing purposes, and sometimes additional Contrib modules or features which are turned off by default.</p><p>Experimental build includes the <a href="https://confluence.sakaiproject.org/display/EVALSYS/Home">Evaluations Contrib tool.</a></p><p>Please see the properties file.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td><a href="https://experimental.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                <td><a href="https://experimental.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                <td>
-                    <a href="https://experimental.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
             </tr>
             <tr>
                 <td colspan=2><b>23.x Test Instance(s)</b><td>
@@ -480,7 +454,6 @@ function bodyOnLoad() {
         <ul>
             <li>Sakai trunk/master servers (MySQL and Oracle) - Rebuilt daily at around 12PM and 12AM Eastern (Database cleared only at 12AM restart) </li>
             <li>Sakai 22.x, 21.x, 20.x server (MySQL) - Rebuilt when there are changes (merges), checks for changes around 1PM - 2AM Eastern. Database cleared weekly Monday morning.</li>
-            <li>Experimental master server (MySQL) - Rebuilt daily at around 12:30PM and 12:30AM Eastern (Database cleared only once a week Sunday at 12:30AM restart) </li>
         </ul>
         <h3>Notes:</h3>
         <ul>
