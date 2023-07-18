@@ -6,12 +6,12 @@
 BUILD_ID="bin/start.sh"
 
 CATALINA_BASE=/var/sakai-qa1-us-active
-cp 21.properties ${CATALINA_BASE}/sakai/sakai.properties
+cp 23.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
 
 source bin/common.sh
 
-DBSCRIPT="${WORKSPACE}/master-mysql.sql"
+DBSCRIPT="${WORKSPACE}/23-mysql.sql"
 DBHOST=$(echo $PROPERTIES["url@javax.sql.BaseDataSource"] | $GREP_CMD -oP '(?<=:\/\/).+(?=:)')
 DBNAME=$(echo $PROPERTIES["url@javax.sql.BaseDataSource"] | $GREP_CMD -oP '(?<=\/)\w+(?=\?)')
 DBUSER=$PROPERTIES["username@javax.sql.BaseDataSource"]
