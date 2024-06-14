@@ -34,8 +34,8 @@ if (( ${cleardb} != 1 && (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); th
 fi
 
 if (( ${cleardb} == 1 )); then
-    # echo "Clearing database and assets"
-    # bin/clean-db.sh
+    echo "Clearing database and assets"
+    bin/clean-db.sh
 fi
 
 bin/clean-code.sh
