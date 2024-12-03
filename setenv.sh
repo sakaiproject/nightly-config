@@ -63,7 +63,7 @@ CATALINA_OPTS="$CATALINA_OPTS -Dhttp.agent=Sakai"
 CATALINA_OPTS="$CATALINA_OPTS -Duser.timezone=US/Eastern"
 
 # Sets the cookie name
-CATALINA_OPTS="$CATALINA_OPTS -Dsakai.cookieName=SAKAISESSIONID"
+CATALINA_OPTS="$CATALINA_OPTS -Dsakai.cookieName=SAKAIID"
 
 # JMX config
 #CATALINA_OPTS="$CATALINA_OPTS -Djava.rmi.server.hostname=xxx.xxx.xxx.xxx \
