@@ -6,6 +6,9 @@
 BUILD_ID="bin/start.sh"
 
 CATALINA_BASE=/var/trunk-maria
+cp catalina.properties  ${CATALINA_BASE}/conf/catalina.properties
+cp context.xml ${CATALINA_BASE}/conf/context.xml
+cp setenv.sh  ${CATALINA_BASE}/bin/setenv.sh
 cp master.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
 source bin/common.sh

@@ -67,7 +67,7 @@ CATALINA_OPTS="$CATALINA_OPTS -Duser.timezone=US/Eastern"
 CATALINA_OPTS="$CATALINA_OPTS -Dsakai.cookieName=SAKAIID"
 
 # JMX config
-#CATALINA_OPTS="$CATALINA_OPTS -Djava.rmi.server.hostname=xxx.xxx.xxx.xxx \
+#CATALINA_OPTS="$CATALINA_OPTS -Djava.rmi.server.hostname=172.31.6.159 \
 #	                          -Dcom.sun.management.jmxremote.port=xxxxx \
 #	                          -Dcom.sun.management.jmxremote.ssl=false \
 #	                          -Dcom.sun.management.jmxremote.authenticate=false" 
