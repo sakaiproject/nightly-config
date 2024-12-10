@@ -8,7 +8,8 @@ CATALINA_OPTS="-server \
                -Djava.net.preferIPv4Stack=true"
 
 # Memory size
-CATALINA_OPTS="$CATALINA_OPTS -Xms2g -Xmx2g -XX:NewSize=500m -XX:MaxNewSize=500m"
+CATALINA_OPTS="$CATALINA_OPTS -Xms2g -Xmx2g"
+
 # Generational New size
 CATALINA_OPTS="$CATALINA_OPTS -XX:NewSize=500m -XX:MaxNewSize=500m"
 
@@ -16,7 +17,6 @@ CATALINA_OPTS="$CATALINA_OPTS -XX:NewSize=500m -XX:MaxNewSize=500m"
 CATALINA_OPTS="$CATALINA_OPTS -XX:+UseG1GC"
 #CATALINA_OPTS="$CATALINA_OPTS -XX:+UseZGC"
 #CATALINA_OPTS="$CATALINA_OPTS -XX:+UseZGC -XX:+ZGenerational"
-#CATALINA_OPTS="$CATALINA_OPTS -XX:+UnlockExperimentalVMOptions"
 #CATALINA_OPTS="$CATALINA_OPTS -XX:+UseShenandoahGC"
 #CATALINA_OPTS="$CATALINA_OPTS -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75"
 
