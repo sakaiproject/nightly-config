@@ -72,3 +72,7 @@ CATALINA_OPTS="$CATALINA_OPTS -Dsakai.cookieName=SAKAIID"
 #	                          -Dcom.sun.management.jmxremote.ssl=false \
 #	                          -Dcom.sun.management.jmxremote.authenticate=false" 
 
+# JDBC Driver
+if [[ $(pwd) =~ "mysql8" ]]; then
+    CLASSPATH="/var/jdbc-connectors/mysql-connector-j-8.0.31.jar"
+fi
