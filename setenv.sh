@@ -55,7 +55,7 @@ JAVA_OPTS="$JAVA_OPTS \
 CATALINA_OPTS="$CATALINA_OPTS -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false"
 
 # Enable Sakai demo mode
-#CATALINA_OPTS="$CATALINA_OPTS -Dsakai.demo=true"
+CATALINA_OPTS="$CATALINA_OPTS -Dsakai.demo=true"
 
 # Sets the http agent
 CATALINA_OPTS="$CATALINA_OPTS -Dhttp.agent=Sakai"
