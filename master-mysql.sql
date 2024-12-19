@@ -23,3 +23,17 @@ VALUES
 INSERT INTO `lti_tools` (`SITE_ID`, `title`, `fa_icon`, `description`, `status`, `visible`, `deployment_id`, `launch`,  `consumerkey`,  `secret`,  `frameheight`, `siteinfoconfig`, `sendname`, `sendemailaddr`, `allowoutcomes`, `allowroster`, `pl_launch`, `pl_linkselection`, `pl_contenteditor`, `pl_importitem`, `pl_fileitem`, `pl_assessmentselection`, `newpage`, `debug`, `custom`, `lti13`, `lti13_settings`, `xmlimport`, `splash`, `created_at`, `updated_at`, `pl_lessonsselection`) 
 VALUES
 (NULL, 'TsugiCloud App Store', NULL, NULL, 0, 0,  NULL, 'https://test.tsugicloud.org/tsugi/lti/store/', '12345', 'secret', NULL, 0, 1, 1, 1, 1, NULL, 1, 1, NULL, NULL, 1, 0, 0, NULL, 0, NULL, NULL, NULL, NOW(), NOW(), 1);
+
+INSERT INTO `lti_tools` (`SITE_ID`, `title`, `fa_icon`, `description`, `status`, `visible`,
+`deployment_id`, `launch`,  `consumerkey`,  `secret`,  
+`frameheight`, `siteinfoconfig`, `sendname`, `sendemailaddr`, `allowoutcomes`, `allowlineitems`, `allowroster`, 
+`pl_launch`, `pl_linkselection`, `pl_coursenav`, `pl_contenteditor`, `pl_importitem`, `pl_fileitem`, `pl_assessmentselection`,`pl_lessonsselection`,
+`newpage`, `debug`, `custom`, `lti13`, `lti13_settings`, `xmlimport`, `splash`,
+`created_at`, `updated_at`) 
+VALUES
+(NULL, 'Sakai Tsugicloud Trophy', 'fa-trophy', NULL, 0, 0,
+NULL, 'https://sakai.tsugicloud.org/mod/trophy/', '12345', 'secret', 
+1200, 0, 1, 1, 1, 1, 1,
+1, 0, 1, 1, 0, 0, 1, 1,
+2, 0, NULL, 0, NULL, NULL, NULL,
+NOW(), NOW());
