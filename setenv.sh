@@ -49,7 +49,8 @@ JAVA_OPTS="$JAVA_OPTS \
     --add-opens=java.base/java.text=ALL-UNNAMED \
     --add-opens=java.management/sun.management=ALL-UNNAMED \
     --add-opens=java.desktop/java.awt.font=ALL-UNNAMED \
-    --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED"
+    --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED \
+    --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED"
 
 # Jasper config
 CATALINA_OPTS="$CATALINA_OPTS -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false"
