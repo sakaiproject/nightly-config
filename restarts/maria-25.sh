@@ -2,41 +2,37 @@
 
 # Jenkins variables
 #  CLEAR_DB - (1/0) 
-
-# BUILD_ID is neeeded so Jenkins ProcessTreeKiller doesn't kill off sakai
+#  BUILD_ID is neeeded so Jenkins ProcessTreeKiller doesn't kill off sakai
 BUILD_ID="bin/start.sh"
 
-CATALINA_BASE=/var/sakai20-mysql
-cp 20.properties ${CATALINA_BASE}/sakai/sakai.properties
+CATALINA_BASE=/var/sakai25-maria
+cp catalina.properties  ${CATALINA_BASE}/conf/catalina.properties
+cp context.xml ${CATALINA_BASE}/conf/context.xml
+cp setenv.sh  ${CATALINA_BASE}/bin/setenv.sh
+cp 25.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
-
 source bin/common.sh
 
-DBSCRIPT="${WORKSPACE}/20-mysql.sql"
+DBSCRIPT="${WORKSPACE}/25-mysql.sql"
 DBHOST=$(echo $PROPERTIES["url@javax.sql.BaseDataSource"] | $GREP_CMD -oP '(?<=:\/\/).+(?=:)')
 DBNAME=$(echo $PROPERTIES["url@javax.sql.BaseDataSource"] | $GREP_CMD -oP '(?<=\/)\w+(?=\?)')
 DBUSER=$PROPERTIES["username@javax.sql.BaseDataSource"]
-DBPASS=$PROPERTIES["password@javax.sql.BaseDataSource"]
-
+DBPASS=$PROPERTIES["password@javax.sql.BaseDataSource"] 
 bin/stop.sh -force || true
 sleep 30
 
-#Only run this between 0 and 5AM
+#Only run this between 0 and 4AM
 typeset -i chour=10#`/bin/date +"%H"`
-typeset -i dow=10#`/bin/date +"%u"`
-# This is %u so 1 (Monday) - 7 (Sunday)
-typeset -i dowclear=1
+typeset -i cday=10#`/bin/date +"%u"`
+
 typeset -i shour=0
-typeset -i ehour=5
+typeset -i ehour=4
 typeset -i cleardb=${CLEAR_DB:-0}
 
-echo "Current hour is ${chour}. Current day is ${dow}"
+echo "Current hour is ${chour}. Current day is ${cday}"
 
-if (( (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); then
-    echo "Dow is ${dow} clear on ${dowclear}"
-    if (( ${dow} == ${dowclear} )); then
-        cleardb=1
-    fi
+if (( ${cleardb} != 1 && (${chour} >= ${shour}) && (${chour} <= ${ehour}) )); then
+	cleardb=1
 fi
 
 if (( ${cleardb} == 1 )); then
@@ -45,7 +41,7 @@ if (( ${cleardb} == 1 )); then
 fi
 
 bin/clean-code.sh
-tar xzf /tmp/sakai20x.tar.gz
+tar xzf /tmp/sakai25x.tar.gz
 bin/start.sh
 
 if (( ${cleardb} == 1 )); then

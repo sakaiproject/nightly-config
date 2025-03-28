@@ -28,13 +28,13 @@
             }
 
 function bodyOnLoad() {
-    getImage('qa21mysql', 'https://qa21-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa22mysql', 'https://qa22-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa23maria', 'https://qa23-maria.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa23mysql8', 'https://qa23-mysql8.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa25maria', 'https://qa25-maria.nightly.sakaiproject.org/library/image/silk/accept.png');
+    getImage('qa25mysql8', 'https://qa25-mysql8.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkmysql8', 'https://trunk-mysql8.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkmaria', 'https://trunk-maria.nightly.sakaiproject.org/library/image/silk/accept.png');
-    getImage('trunkmysql', 'https://trunk-mysql.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('trunkoracle', 'https://trunk-oracle.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa1us', 'https://qa1-us.nightly.sakaiproject.org/library/image/silk/accept.png');
     getImage('qa2us', 'https://qa2-us.nightly.sakaiproject.org/library/image/silk/accept.png');
@@ -61,7 +61,7 @@ function bodyOnLoad() {
                 <th>Properties</th>
             </tr>
             <tr>
-                <td colspan=3><b>25 (Master) Test Instance(s) - Primary servers for QA testing fixed Jiras</b><td>
+                <td colspan=3><b>26 (Master) Test Instance(s) - Primary servers for QA testing fixed Jiras</b><td>
             </tr>
             <tr>
                 <td><img id="trunkmaria" border="0" src="cancel.png"></td>
@@ -115,34 +115,6 @@ function bodyOnLoad() {
                 <td>
                     <a href="https://trunk-mysql8.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
             </tr>
-            <!--
-            <tr>
-                <td><img id="trunkmysql" border="0" src="cancel.png"></td>
-                <td><a href="https://trunk-mysql.nightly.sakaiproject.org/portal/">Trunk (master) on MySQL 5.7 (deprecated)</a></td>
-                <td>
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakaimastermysql">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaimastermysql" aria-expanded="true" aria-controls="collapsesakaimastermysql">
-                                        Trunk/Master MySQL description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakaimastermysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimastermysql">
-                                <div class="panel-body">
-                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify improvements (bugs and features) which have been resolved but not tested. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td><a href="https://trunk-mysql.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                <td><a href="https://trunk-mysql.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                <td>
-                    <a href="https://trunk-mysql.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            -->
             <tr>
                 <td><img id="trunkoracle" border="0" src="cancel.png"></td>
                 <td><a href="https://trunk-oracle.nightly.sakaiproject.org/portal/">Trunk (master) on Oracle</a></td>
@@ -167,6 +139,86 @@ function bodyOnLoad() {
                     <td>
                         <a href="https://trunk-oracle.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
             </tr>
+            <tr>
+                <td colspan=2><b>25.x Test Instance(s)</b><td>
+            </tr>
+            <tr>
+                <td><img id="qa25maria" border="0" src="cancel.png"></td>
+                <td><a href="https://qa25-maria.nightly.sakaiproject.org/">25.x Maintenance Branch on MariaDB</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakai25maria">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai25maria" aria-expanded="true" aria-controls="collapsesakai25maria">
+                                        25.x MariaDB description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakai25maria" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai25maria">
+                                <div class="panel-body">
+                                    <p>Contains the latest available patches for Sakai 25 that have been added since the tagged community release.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://qa25-maria.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                <td><a href="https://qa25-maria.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                <td><a href="https://qa25-maria.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
+            </tr>
+            <tr>
+                <td><img id="qa25mysql8" border="0" src="cancel.png"></td>
+                <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/">25.x Maintenance Branch on MySQL 8</a></td>
+                <td>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakai25mysql8">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai25mysql8" aria-expanded="true" aria-controls="collapsesakai25mysql8">
+                                        25.x MySQL 8 description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakai25mysql8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai25mysql8">
+                                <div class="panel-body">
+                                    <p>Contains the latest available patches for Sakai 25 that have been added since the tagged community release.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
+            </tr>
+            <!--
+            <tr>
+                <td><img id="qa1us" border="0" src="cancel.png"></td>
+                <td>
+                    <a href="https://qa1-us.nightly.sakaiproject.org/portal">25.0 on MySQL 8</a></td>
+                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="describesakaiqa">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa1" aria-expanded="true" aria-controls="collapsesakaiqa1">
+                                        Sakai 25.0 server description
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsesakaiqa1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa2">
+                                <div class="panel-body">
+                                    <p>Sakai 25.0 is the latest stable release.</p> <p>Data retention is managed manually for this QA server.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div></td>
+                    <td><a href="https://qa1-us.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                    <td><a href="https://qa1-us.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                    <td>
+                        <a href="https://qa1-us.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
+            </tr>
+            -->
             <tr>
                 <td colspan=2><b>23.x Test Instance(s)</b><td>
             </tr>
@@ -297,34 +349,6 @@ function bodyOnLoad() {
                     <td><a href="https://qa2-us.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
                     <td>
                         <a href="https://qa2-us.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td colspan=2><b>21.x Test Instance(s)</b><td>
-            </tr>
-            <tr>
-                <td><img id="qa21mysql" border="0" src="cancel.png"></td>
-                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/">21.x Maintenance Branch on MySQL 5.7</a></td>
-                <td>
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakai21mysql">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai21mysql" aria-expanded="true" aria-controls="collapsesakai21mysql">
-                                        21.x MySQL description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakai21mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai21mysql">
-                                <div class="panel-body">
-                                    <p>Contains the latest available patches for Sakai 21 that have been added since the tagged community release.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                <td><a href="https://qa21-mysql.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
             </tr>
             <tr>
                 <td colspan=2><b>Other servers</b><td>
