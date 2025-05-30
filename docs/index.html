@@ -1,467 +1,691 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-        <link rel="stylesheet" href="cssjs/style.css">
 
+    <script type="text/javascript">
+      function checkServerStatus(serverId, serverUrl) {
+        fetch(serverUrl + '/portal', {
+          method: 'HEAD',
+          cache: 'no-store'
+        })
+          .then(function (response) {
+            let iconElement = document.getElementById(serverId);
 
-        <script type="text/javascript">
-            function checkServerStatus(serverId, serverUrl) {
-
-                // Use fetch API to check if server is responsive
-                fetch(serverUrl + '/portal', { 
-                    method: 'HEAD',
-                    cache: 'no-store'
-                    // no-cors mode removed to allow checking status codes
-                })
-                .then(function(response) {
-                    var iconElement = document.getElementById(serverId);
-
-                    // Check the HTTP status code
-                    if (response.ok) {
-                        // Status is 200-299, server is fully responsive
-                        iconElement.className = 'glyphicon glyphicon-ok text-success';
-                        iconElement.title = 'Server is online';
-                    } else {
-                        // Other error status codes
-                        iconElement.className = 'glyphicon glyphicon-exclamation-sign text-warning';
-                        iconElement.title = 'Server returned status: ' + response.status;
-                    }
-                })
-                .catch(function(error) {
-                    // Network error or server is not responsive
-                    var iconElement = document.getElementById(serverId);
-                    iconElement.className = 'glyphicon glyphicon-remove text-danger';
-                    iconElement.title = 'Server is offline or error: ' + error.message;
-                    console.log('Error checking server status:', error);
-                });
-                return false;
+            if (response.ok) {
+              // Status is 200-299, server is fully responsive
+              iconElement.className = 'bi bi-check-circle-fill text-success';
+              iconElement.title = 'Server is online';
+            } else {
+              // Other error status codes
+              iconElement.className = 'bi bi-exclamation-triangle-fill text-warning';
+              iconElement.title = 'Server returned status: ' + response.status;
             }
+          })
+          .catch(function (error) {
+            // Network error or server is not responsive
+            let iconElement = document.getElementById(serverId);
+            iconElement.className = 'bi bi-x-circle-fill text-danger';
+            iconElement.title = 'Server is offline or error: ' + error.message;
+            console.log('Error checking server status:', error);
+          });
+        return false;
+      }
 
-            function bodyOnLoad() {
-              checkServerStatus('qa22mysql', 'https://qa22-mysql.nightly.sakaiproject.org');
-              checkServerStatus('qa23maria', 'https://qa23-maria.nightly.sakaiproject.org');
-              checkServerStatus('qa23mysql8', 'https://qa23-mysql8.nightly.sakaiproject.org');
-              checkServerStatus('qa25maria', 'https://qa25-maria.nightly.sakaiproject.org');
-              checkServerStatus('qa25mysql8', 'https://qa25-mysql8.nightly.sakaiproject.org');
-              checkServerStatus('trunkmysql8', 'https://trunk-mysql8.nightly.sakaiproject.org');
-              checkServerStatus('trunkmaria', 'https://trunk-maria.nightly.sakaiproject.org');
-              checkServerStatus('trunkoracle', 'https://trunk-oracle.nightly.sakaiproject.org');
-              checkServerStatus('qa1us', 'https://qa1-us.nightly.sakaiproject.org');
-              checkServerStatus('qa2us', 'https://qa2-us.nightly.sakaiproject.org');
-              return false;
-            }
-        </script>
+      function bodyOnLoad() {
+        checkServerStatus('qa22mysql', 'https://qa22-mysql.nightly.sakaiproject.org');
+        checkServerStatus('qa23maria', 'https://qa23-maria.nightly.sakaiproject.org');
+        checkServerStatus('qa23mysql8', 'https://qa23-mysql8.nightly.sakaiproject.org');
+        checkServerStatus('qa25maria', 'https://qa25-maria.nightly.sakaiproject.org');
+        checkServerStatus('qa25mysql8', 'https://qa25-mysql8.nightly.sakaiproject.org');
+        checkServerStatus('trunkmysql8', 'https://trunk-mysql8.nightly.sakaiproject.org');
+        checkServerStatus('trunkmaria', 'https://trunk-maria.nightly.sakaiproject.org');
+        checkServerStatus('trunkoracle', 'https://trunk-oracle.nightly.sakaiproject.org');
+        checkServerStatus('qa1us', 'https://qa1-us.nightly.sakaiproject.org');
+        checkServerStatus('qa2us', 'https://qa2-us.nightly.sakaiproject.org');
+        return false;
+      }
+    </script>
 
-        <title>Sakai - nightly servers list</title>
-    </head>
-    <body bgcolor="#FFFFFF" onload="bodyOnLoad()">
+    <title>Sakai - nightly servers list</title>
+</head>
+<body class="bg-white d-flex flex-column min-vh-100" onload="bodyOnLoad()">
 
-        <h1>nightly2.sakaiproject.org</h1>
-        <h3>Available instances</h3>
+<div class="container-fluid py-4">
+    <h1 class="display-4 text-primary">nightly2.sakaiproject.org</h1>
 
-
-        <table class="responstable">
-
-            <tr>
-                <th>Status</th>
-                <th>Instance</th>
-                <th data-th="Driver details"><span>Description</span></th>
-                <th>Logs</th>
-                <th>Tail Logs</th>
-                <th>Properties</th>
-            </tr>
-            <tr>
-                <td colspan=3><b>26 (Master) Test Instance(s) - Primary servers for QA testing fixed Jiras</b><td>
-            </tr>
-            <tr>
-                <td><span id="trunkmaria" class="glyphicon glyphicon-remove text-danger" title="Server is offline"></span></td>
-                <td><a href="https://trunk-maria.nightly.sakaiproject.org/portal/">Trunk (master) on MariaDB</a></td>
-                <td>
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakaimastermaria">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaimastermaria" aria-expanded="true" aria-controls="collapsesakaimastermaria">
-                                        Trunk/Master MariaDB description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakaimastermaria" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimastermaria">
-                                <div class="panel-body">
-                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify improvements (bugs and features) which have been resolved but not tested. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p>
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Available Instances</h3>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Instance</th>
+                        <th>Description</th>
+                        <th>Logs</th>
+                        <th>Tail Logs</th>
+                        <th>Properties</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="table-secondary">
+                        <td colspan="6"><b>26 (Master) Test Instance(s) - Primary servers for QA testing fixed Jiras</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="bi bi-x-circle-fill text-danger" id="trunkmaria"
+                                  title="Server is offline"></span></td>
+                        <td><a href="https://trunk-maria.nightly.sakaiproject.org/portal/">Trunk (master) on MariaDB</a>
+                        </td>
+                        <td>
+                            <div aria-multiselectable="true" class="panel-group" id="accordion-trunkmaria"
+                                 role="tablist">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="describesakaimastermaria" role="tab">
+                                        <div class="panel-title">
+                                            <a aria-controls="collapsesakaimastermaria" aria-expanded="true"
+                                               data-bs-parent="#accordion-trunkmaria"
+                                               data-bs-toggle="collapse" href="#collapsesakaimastermaria"
+                                               role="button">
+                                                Trunk/Master MariaDB description
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div aria-labelledby="describesakaimastermaria" class="panel-collapse collapse" id="collapsesakaimastermaria"
+                                         role="tabpanel">
+                                        <div class="panel-body">
+                                            <p><strong>Trunk/Master should NOT be used for production
+                                                installations.</strong></p>
+                                            <p>Often used to verify improvements (bugs and features) which have been
+                                                resolved but not
+                                                tested. Contains the latest available patches for Sakai and is
+                                                constantly changing
+                                                (i.e., new patches for bug fixes and features every day).</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </td>
+                        <td><a href="https://trunk-maria.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                        <td><a href="https://trunk-maria.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                        <td><a href="https://trunk-maria.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="bi bi-x-circle-fill text-danger" id="trunkmysql8"
+                                  title="Server is offline"></span></td>
+                        <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/portal/">Trunk (master) on MySQL
+                            8</a></td>
+                        <td>
+                            <div aria-multiselectable="true" class="panel-group" id="accordion-trunkmysql8"
+                                 role="tablist">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="describesakaimastermysql" role="tab">
+                                        <div class="panel-title">
+                                            <a aria-controls="collapsesakaimastermysql" aria-expanded="true"
+                                               data-bs-parent="#accordion-trunkmysql8"
+                                               data-bs-toggle="collapse" href="#collapsesakaimastermysql"
+                                               role="button">
+                                                Trunk/Master MySQL 8 description
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div aria-labelledby="describesakaimastermysql" class="panel-collapse collapse" id="collapsesakaimastermysql"
+                                         role="tabpanel">
+                                        <div class="panel-body">
+                                            <p><strong>Trunk/Master should NOT be used for production
+                                                installations.</strong></p>
+                                            <p>Often used to verify improvements (bugs and features) which have been
+                                                resolved but not
+                                                tested. Contains the latest available patches for Sakai and is
+                                                constantly changing
+                                                (i.e., new patches for bug fixes and features every day).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                        <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                        <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="bi bi-x-circle-fill text-danger" id="trunkoracle"
+                                  title="Server is offline"></span></td>
+                        <td><a href="https://trunk-oracle.nightly.sakaiproject.org/portal/">Trunk (master) on Oracle</a>
+                        </td>
+                        <td>
+                            <div aria-multiselectable="true" class="panel-group" id="accordion-trunkoracle"
+                                 role="tablist">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="describesakaimasteroracle" role="tab">
+                                        <div class="panel-title">
+                                            <a aria-controls="collapsesakaimasteroracle" aria-expanded="true"
+                                               data-bs-parent="#accordion-trunkoracle"
+                                               data-bs-toggle="collapse" href="#collapsesakaimasteroracle"
+                                               role="button">
+                                                Trunk/Master Oracle description
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div aria-labelledby="describesakaimasteroracle" class="panel-collapse collapse" id="collapsesakaimasteroracle"
+                                         role="tabpanel">
+                                        <div class="panel-body">
+                                            <p><strong>Trunk/Master should NOT be used for production
+                                                installations.</strong></p>
+                                            <p>Often used to verify improvements (bugs and features) which have been
+                                                resolved but not
+                                                tested. Contains the latest available patches for Sakai and is
+                                                constantly changing
+                                                (i.e., new patches for bug fixes and features every day).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><a href="https://trunk-oracle.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                        <td><a href="https://trunk-oracle.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                        <td><a href="https://trunk-oracle.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
+                        </td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td colspan="6"><b>25.x Test Instance(s)</b></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bi bi-x-circle-fill text-danger" id="qa25maria"
+                                  title="Server is offline"></span></td>
+                        <td><a href="https://qa25-maria.nightly.sakaiproject.org/">25.x Maintenance Branch on
+                            MariaDB</a></td>
+                        <td>
+                            <div aria-multiselectable="true" class="panel-group" id="accordion-qa25maria"
+                                 role="tablist">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="describesakai25maria" role="tab">
+                                        <div class="panel-title">
+                                            <a aria-controls="collapsesakai25maria" aria-expanded="true"
+                                               data-bs-parent="#accordion-qa25maria"
+                                               data-bs-toggle="collapse" href="#collapsesakai25maria"
+                                               role="button">
+                                                25.x MariaDB description
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div aria-labelledby="describesakai25maria" class="panel-collapse collapse" id="collapsesakai25maria"
+                                         role="tabpanel">
+                                        <div class="panel-body">
+                                            <p>Contains the latest available patches for Sakai 25 that have been added
+                                                since the tagged
+                                                community release.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><a href="https://qa25-maria.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                        <td><a href="https://qa25-maria.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                        <td><a href="https://qa25-maria.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="bi bi-x-circle-fill text-danger" id="qa25mysql8"
+                                  title="Server is offline"></span></td>
+                        <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/">25.x Maintenance Branch on MySQL
+                            8</a></td>
+                        <td>
+                            <div aria-multiselectable="true" class="panel-group" id="accordion-qa25mysql8"
+                                 role="tablist">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="describesakai25mysql8" role="tab">
+                                        <div class="panel-title">
+                                            <a aria-controls="collapsesakai25mysql8" aria-expanded="true"
+                                               data-bs-parent="#accordion-qa25mysql8"
+                                               data-bs-toggle="collapse" href="#collapsesakai25mysql8"
+                                               role="button">
+                                                25.x MySQL 8 description
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div aria-labelledby="describesakai25mysql8" class="panel-collapse collapse" id="collapsesakai25mysql8"
+                                         role="tabpanel">
+                                        <div class="panel-body">
+                                            <p>Contains the latest available patches for Sakai 25 that have been added
+                                                since the tagged
+                                                community release.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                        <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                        <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
+                        </td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td colspan="6"><b>23.x Test Instance(s)</b></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bi bi-x-circle-fill text-danger" id="qa23maria"
+                                  title="Server is offline"></span></td>
+                        <td><a href="https://qa23-maria.nightly.sakaiproject.org/">23.x Maintenance Branch on
+                            MariaDB</a></td>
+                        <td>
+                            <div aria-multiselectable="true" class="panel-group" id="accordion-qa23maria"
+                                 role="tablist">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="describesakai23maria" role="tab">
+                                        <div class="panel-title">
+                                            <a aria-controls="collapsesakai23maria" aria-expanded="true"
+                                               data-bs-parent="#accordion-qa23maria"
+                                               data-bs-toggle="collapse" href="#collapsesakai23maria"
+                                               role="button">
+                                                23.x MariaDB description
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div aria-labelledby="describesakai23maria" class="panel-collapse collapse" id="collapsesakai23maria"
+                                         role="tabpanel">
+                                        <div class="panel-body">
+                                            <p>Contains the latest available patches for Sakai 23 that have been added
+                                                since the tagged
+                                                community release.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><a href="https://qa23-maria.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                        <td><a href="https://qa23-maria.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                        <td><a href="https://qa23-maria.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="bi bi-x-circle-fill text-danger" id="qa23mysql8"
+                                  title="Server is offline"></span></td>
+                        <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/">23.x Maintenance Branch on MySQL
+                            8</a></td>
+                        <td>
+                            <div aria-multiselectable="true" class="panel-group" id="accordion-qa23mysql8"
+                                 role="tablist">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="describesakai23mysql8" role="tab">
+                                        <div class="panel-title">
+                                            <a aria-controls="collapsesakai23mysql8" aria-expanded="true"
+                                               data-bs-parent="#accordion-qa23mysql8"
+                                               data-bs-toggle="collapse" href="#collapsesakai23mysql8"
+                                               role="button">
+                                                23.x MySQL 8 description
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div aria-labelledby="describesakai23mysql8" class="panel-collapse collapse" id="collapsesakai23mysql8"
+                                         role="tabpanel">
+                                        <div class="panel-body">
+                                            <p>Contains the latest available patches for Sakai 23 that have been added
+                                                since the tagged
+                                                community release.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                        <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                        <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="bi bi-x-circle-fill text-danger" id="qa1us" title="Server is offline"></span>
+                        </td>
+                        <td>
+                            <a href="https://qa1-us.nightly.sakaiproject.org/portal">23.3 on MySQL 8</a></td>
+                        <td>
+                            <div aria-multiselectable="true" class="panel-group" id="accordion-qa1us" role="tablist">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="describesakaiqa1" role="tab">
+                                        <div class="panel-title">
+                                            <a aria-controls="collapsesakaiqa1" aria-expanded="true" data-bs-parent="#accordion-qa1us"
+                                               data-bs-toggle="collapse" href="#collapsesakaiqa1"
+                                               role="button">
+                                                Sakai 23.3 server description
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div aria-labelledby="describesakaiqa2" class="panel-collapse collapse" id="collapsesakaiqa1"
+                                         role="tabpanel">
+                                        <div class="panel-body">
+                                            <p>Sakai 23.3 is the latest stable release.</p>
+                                            <p>Data retention is managed manually for this QA server.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><a href="https://qa1-us.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                        <td><a href="https://qa1-us.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                        <td>
+                            <a href="https://qa1-us.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
+                        </td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td colspan="6"><b>22.x Test Instance(s)</b></td>
+                    </tr>
+                    <tr>
+                        <td><span class="bi bi-x-circle-fill text-danger" id="qa22mysql"
+                                  title="Server is offline"></span></td>
+                        <td><a href="https://qa22-mysql.nightly.sakaiproject.org/">22.x Maintenance Branch on MySQL
+                            5.7</a></td>
+                        <td>
+                            <div aria-multiselectable="true" class="panel-group" id="accordion-qa22mysql"
+                                 role="tablist">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="describesakai22mysql" role="tab">
+                                        <div class="panel-title">
+                                            <a aria-controls="collapsesakai22mysql" aria-expanded="true"
+                                               data-bs-parent="#accordion-qa22mysql"
+                                               data-bs-toggle="collapse" href="#collapsesakai22mysql"
+                                               role="button">
+                                                22.x MySQL description
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div aria-labelledby="describesakai22mysql" class="panel-collapse collapse" id="collapsesakai22mysql"
+                                         role="tabpanel">
+                                        <div class="panel-body">
+                                            <p>Contains the latest available patches for Sakai 22 that have been added
+                                                since the tagged
+                                                community release.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><a href="https://qa22-mysql.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                        <td><a href="https://qa22-mysql.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                        <td><a href="https://qa22-mysql.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="bi bi-x-circle-fill text-danger" id="qa2us" title="Server is offline"></span>
+                        </td>
+                        <td>
+                            <a href="https://qa2-us.nightly.sakaiproject.org/portal">22.5 on MySQL 5.7</a></td>
+                        <td>
+                            <div aria-multiselectable="true" class="panel-group" id="accordion-qa2us" role="tablist">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="describesakaiqa2" role="tab">
+                                        <div class="panel-title">
+                                            <a aria-controls="collapsesakaiqa2" aria-expanded="true" data-bs-parent="#accordion-qa2us"
+                                               data-bs-toggle="collapse" href="#collapsesakaiqa2"
+                                               role="button">
+                                                Sakai 22.5 server description
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div aria-labelledby="describesakaiqa2" class="panel-collapse collapse" id="collapsesakaiqa2"
+                                         role="tabpanel">
+                                        <div class="panel-body">
+                                            <p>Sakai 22.5 is the latest 22 maintenance release.</p>
+                                            <p>Data retention is managed manually for this QA server.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><a href="https://qa2-us.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
+                        <td><a href="https://qa2-us.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
+                        <td>
+                            <a href="https://qa2-us.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
+                        </td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td colspan="6"><b>Other servers</b></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="https://www.mailinator.com/">Mailinator</a></td>
+                        <td>
+                            <div aria-multiselectable="true" class="panel-group" id="accordion-mailinator"
+                                 role="tablist">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" id="describemailcatcher" role="tab">
+                                        <div class="panel-title">
+                                            <a aria-controls="collapsemailcatcher" aria-expanded="true"
+                                               data-bs-parent="#accordion-mailinator"
+                                               data-bs-toggle="collapse" href="#collapsemailcatcher"
+                                               role="button">
+                                                Mailinator description
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div aria-labelledby="describemailcatcher" class="panel-collapse collapse" id="collapsemailcatcher"
+                                         role="tabpanel">
+                                        <div class="panel-body">
+                                            <p>Mailinator is a website that accepts emails for absolutely any address
+                                                @mailinator.com.
+                                                Any email you can think of @mailinator.com is created when the email
+                                                arrives! From there,
+                                                the Mailinator website then lets anyone read any of those emails.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="https://jenkins.nightly.sakaiproject.org/">Jenkins</a><br>(Commit access to GitHub
+                            project required)
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><a href="https://javadocs.nightly.sakaiproject.org/">Sakai API Javadocs</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><a href="https://xbdd.nightly.sakaiproject.org/">XBDD QA Testing</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td><a href="https://grader-mysql.nightly.sakaiproject.org/">Sakai Grader Testbed</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-5 mb-4 shadow-sm">
+        <div class="card-header bg-danger text-white">
+            <h3 class="mb-0">Login information</h3>
+        </div>
+        <div class="card-body">
+            <p class="card-text">You can either create an account on each server (which for most will be cleared out
+                nightly) or use the sample users.
+                Sakai's SampleUserDirectoryProvider is also used on every server creates sample users for testing
+                external providers and
+                course rosters.</p>
+
+            <div class="alert alert-info">
+                <p class="mb-0"><strong>All passwords are sakai (lowercase)</strong></p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-header bg-light">
+                            <strong>"Student" user accounts</strong>
                         </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">student0001 to student0500 (student0001 - 0014 have defined
+                                first/last names, 0001-0007 have additional properties)
+                            </li>
+                            <li class="list-group-item">user1, user2, user3, student</li>
+                        </ul>
                     </div>
-                </td>
-                <td><a href="https://trunk-maria.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                <td><a href="https://trunk-maria.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                <td>
-                    <a href="https://trunk-maria.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td><span id="trunkmysql8" class="glyphicon glyphicon-remove text-danger" title="Server is offline"></span></td>
-                <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/portal/">Trunk (master) on MySQL 8</a></td>
-                <td>
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakaimastermysql">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaimastermysql" aria-expanded="true" aria-controls="collapsesakaimastermysql">
-                                        Trunk/Master MySQL 8 description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakaimastermysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimastermysql">
-                                <div class="panel-body">
-                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify improvements (bugs and features) which have been resolved but not tested. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p>
-                                </div>
-                            </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-header bg-light">
+                            <strong>"Instructor" user accounts</strong>
                         </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">instructor, instructor1 instructor2</li>
+                        </ul>
                     </div>
-                </td>
-                <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                <td>
-                    <a href="https://trunk-mysql8.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td><span id="trunkoracle" class="glyphicon glyphicon-remove text-danger" title="Server is offline"></span></td>
-                <td><a href="https://trunk-oracle.nightly.sakaiproject.org/portal/">Trunk (master) on Oracle</a></td>
-                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakaimasteroracle">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaimasteroracle" aria-expanded="true" aria-controls="collapsesakaimasteroracle">
-                                        Trunk/Master Oracle description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakaimasteroracle" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaimasteroracle">
-                                <div class="panel-body">
-                                    <p><strong>Trunk/Master should NOT be used for production installations.</strong></p><p>Often used to verify improvements (bugs and features) which have been resolved but not tested. Contains the latest available patches for Sakai, and is constantly changing (i.e. new patches for bug fixes and features every day).</p>
-                                </div>
-                            </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card mb-3">
+                        <div class="card-header bg-light">
+                            <strong>"TA" user accounts</strong>
                         </div>
-                    </div></td>
-                    <td><a href="https://trunk-oracle.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                    <td><a href="https://trunk-oracle.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                    <td>
-                        <a href="https://trunk-oracle.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td colspan=2><b>25.x Test Instance(s)</b><td>
-            </tr>
-            <tr>
-                <td><span id="qa25maria" class="glyphicon glyphicon-remove text-danger" title="Server is offline"></span></td>
-                <td><a href="https://qa25-maria.nightly.sakaiproject.org/">25.x Maintenance Branch on MariaDB</a></td>
-                <td>
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakai25maria">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai25maria" aria-expanded="true" aria-controls="collapsesakai25maria">
-                                        25.x MariaDB description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakai25maria" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai25maria">
-                                <div class="panel-body">
-                                    <p>Contains the latest available patches for Sakai 25 that have been added since the tagged community release.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">ta, ta1, ta2, ta3</li>
+                        </ul>
                     </div>
-                </td>
-                <td><a href="https://qa25-maria.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                <td><a href="https://qa25-maria.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                <td><a href="https://qa25-maria.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td><span id="qa25mysql8" class="glyphicon glyphicon-remove text-danger" title="Server is offline"></span></td>
-                <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/">25.x Maintenance Branch on MySQL 8</a></td>
-                <td>
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakai25mysql8">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai25mysql8" aria-expanded="true" aria-controls="collapsesakai25mysql8">
-                                        25.x MySQL 8 description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakai25mysql8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai25mysql8">
-                                <div class="panel-body">
-                                    <p>Contains the latest available patches for Sakai 25 that have been added since the tagged community release.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td colspan=2><b>23.x Test Instance(s)</b><td>
-            </tr>
-            <tr>
-                <td><span id="qa23maria" class="glyphicon glyphicon-remove text-danger" title="Server is offline"></span></td>
-                <td><a href="https://qa23-maria.nightly.sakaiproject.org/">23.x Maintenance Branch on MariaDB</a></td>
-                <td>
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakai23maria">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai23maria" aria-expanded="true" aria-controls="collapsesakai23maria">
-                                        23.x MariaDB description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakai23maria" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai23maria">
-                                <div class="panel-body">
-                                    <p>Contains the latest available patches for Sakai 23 that have been added since the tagged community release.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td><a href="https://qa23-maria.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                <td><a href="https://qa23-maria.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                <td><a href="https://qa23-maria.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td><span id="qa23mysql8" class="glyphicon glyphicon-remove text-danger" title="Server is offline"></span></td>
-                <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/">23.x Maintenance Branch on MySQL 8</a></td>
-                <td>
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakai23mysql8">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai23mysql8" aria-expanded="true" aria-controls="collapsesakai23mysql8">
-                                        23.x MySQL 8 description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakai23mysql8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai23mysql8">
-                                <div class="panel-body">
-                                    <p>Contains the latest available patches for Sakai 23 that have been added since the tagged community release.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                <td><a href="https://qa23-mysql8.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td><span id="qa1us" class="glyphicon glyphicon-remove text-danger" title="Server is offline"></span></td>
-                <td>
-                    <a href="https://qa1-us.nightly.sakaiproject.org/portal">23.3 on MySQL 8</a></td>
-                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakaiqa">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa1" aria-expanded="true" aria-controls="collapsesakaiqa1">
-                                        Sakai 23.3 server description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakaiqa1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa2">
-                                <div class="panel-body">
-                                    <p>Sakai 23.3 is the latest stable release.</p> <p>Data retention is managed manually for this QA server.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div></td>
-                    <td><a href="https://qa1-us.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                    <td><a href="https://qa1-us.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                    <td>
-                        <a href="https://qa1-us.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td colspan=2><b>22.x Test Instance(s)</b><td>
-            </tr>
-            <tr>
-                <td><span id="qa22mysql" class="glyphicon glyphicon-remove text-danger" title="Server is offline"></span></td>
-                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/">22.x Maintenance Branch on MySQL 5.7</a></td>
-                <td>
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakai22mysql">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakai22mysql" aria-expanded="true" aria-controls="collapsesakai22mysql">
-                                        22.x MySQL description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakai22mysql" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakai22mysql">
-                                <div class="panel-body">
-                                    <p>Contains the latest available patches for Sakai 22 that have been added since the tagged community release.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                <td><a href="https://qa22-mysql.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td><span id="qa2us" class="glyphicon glyphicon-remove text-danger" title="Server is offline"></span></td>
-                <td>
-                    <a href="https://qa2-us.nightly.sakaiproject.org/portal">22.5 on MySQL 5.7</a></td>
-                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describesakaiqa">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsesakaiqa2" aria-expanded="true" aria-controls="collapsesakaiqa2">
-                                        Sakai 22.5 server description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsesakaiqa2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describesakaiqa2">
-                                <div class="panel-body">
-                                    <p>Sakai 22.5 is the latest 22 maintenance release.</p> <p>Data retention is managed manually for this QA server.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div></td>
-                    <td><a href="https://qa2-us.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                    <td><a href="https://qa2-us.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                    <td>
-                        <a href="https://qa2-us.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a></td>
-            </tr>
-            <tr>
-                <td colspan=2><b>Other servers</b><td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <a href="https://www.mailinator.com/">Mailinator</a></td>
-                <td><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="describemailcatcher">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsemailcatcher" aria-expanded="true" aria-controls="collapsemailcatcher">
-                                        Mailinator description
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapsemailcatcher" class="panel-collapse collapse" role="tabpanel" aria-labelledby="describemailcatcher">
-                                <div class="panel-body">
-                                    <p>Mailinator is a website that accepts emails for absolutely any address @mailinator.com. Any email you can think of @mailinator.com is created when email arrives! From there, the Mailinator website then lets anyone read any of those emails.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                    </td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>
-                    <a href="https://jenkins.nightly.sakaiproject.org/">Jenkins</a><br>(Commit access to github project required)</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                </div>
+            </div>
 
-            <tr>
-                <td>&nbsp;</td>
-                <td><a href="https://javadocs.nightly.sakaiproject.org/">Sakai API Javadocs</a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            <p class="card-text mt-3">Additionally, any user that starts with "test" can log in with the same password
+                as the username, no account needed.
+                For example, test123 (password test123)</p>
 
-            <tr>
-                <td>&nbsp;</td>
-                <td><a href="http://xbdd.nightly.sakaiproject.org/">XBDD QA Testing</a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            <p class="card-text">There may exist other accounts for other testing purposes (like datest/datest for
+                testing delegated access)</p>
+        </div>
+    </div>
 
-            <tr>
-                <td>&nbsp;</td>
-                <td><a href="http://grader-mysql.nightly.sakaiproject.org/">Sakai Grader Testbed</a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-
-        </table>
-
-        <h3>Login information</h3>
-        You can either create an account on each server (which for most will be cleared out nightly) or use the sample users. Sakai's SampleUserDirectoryProvider is also used on every server creates sample users for testing external providers and course rosters.<br>
-
-        <p><b>All passwords are sakai (lowercase)</b></p>
-
-        <ul>
-            <li>"Student" user accounts</li>
-            <ul>
-                <li>student0001 to student0500 (student0001 - 0014 have defined first/last names, 0001-0007 have additional properties)</li>
-                <li>user1, user2, user3, student</li>
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-success text-white">
+            <h3 class="mb-0">Restart Schedule</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">
+                    <i class="bi bi-arrow-repeat text-primary me-2"></i>
+                    <strong>Sakai trunk/master servers (MySQL and MariaDB)</strong> — Rebuilt daily at around 12PM and
+                    12AM Eastern (Database cleared only at 12AM restart)
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-arrow-repeat text-primary me-2"></i>
+                    <strong>All other Sakai versions</strong> — Rebuilt when there are changes (merges), checks for
+                    changes around 1PM - 2AM Eastern. Database cleared weekly Monday morning.
+                </li>
             </ul>
+        </div>
+    </div>
 
-            <li>"Instructor" user accounts</li>
-            <ul>
-                <li>instructor, instructor1 instructor2</li>
-            </ul>
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-info text-white">
+            <h3 class="mb-0">Notes</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item">
+                            <i class="bi bi-clock text-secondary me-2"></i>
+                            All times are U.S. Eastern timezone.
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-hourglass-split text-secondary me-2"></i>
+                            Generally, the instance will be available within 30–60 minutes after the rebuild.
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-database text-secondary me-2"></i>
+                            Database wipes only occur during the first build of the day (in the early am).
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <strong><i class="bi bi-gear text-secondary me-2"></i>Technical environment for
+                                nightlies:</strong>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">(Common) Java 11.0.27 (Temurin)</li>
+                            <li class="list-group-item">(Common) Java 17.0.15 (Temurin)</li>
+                            <li class="list-group-item">(Common) Maven 3.9.9</li>
+                            <li class="list-group-item">(Common) MariaDB 10.6.7, MySQL 8.0.35</li>
+                            <li class="list-group-item">Sakai master - Tomcat 9.0.105 - Java 17</li>
+                            <li class="list-group-item">Sakai 25 - Tomcat 9.0.105 - Java 17</li>
+                            <li class="list-group-item">Sakai 23 - Tomcat 9.0.105 - Java 11</li>
+                            <li class="list-group-item">Sakai 22 - Tomcat 9.0.105 - Java 11</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <li>"TA" user accounts</li>
-            <ul>
-                <li>ta, ta1, ta2, ta3</li>
-            </ul>
-
-        </ul>
-
-        Additionally any user that starts with "test" can login with the same password as the username no account needed.
-        For example: test123 (password test123)
-
-        There may exist other accounts for other testing purposes (like datest/datest for testing delegated access)
-
-        <h3>Restart Schedule:</h3>
-        <ul>
-            <li>Sakai trunk/master servers (MySQL and Oracle) - Rebuilt daily at around 12PM and 12AM Eastern (Database cleared only at 12AM restart) </li>
-            <li>Sakai 22.x, 21.x, 20.x server (MySQL) - Rebuilt when there are changes (merges), checks for changes around 1PM - 2AM Eastern. Database cleared weekly Monday morning.</li>
-        </ul>
-        <h3>Notes:</h3>
-        <ul>
-            <li>All times are U.S. Eastern timezone.</li>
-            <li>Generally the instance will be available within 30-60 minutes after the rebuild.</li>
-            <li>Database wipes only occur during the first build of the day (in the early am).</li>
-            <li>Technical environment for nightlies: 
-                <ul>
-                    <li>(Common) Java 1.8.0_312 (Temurin)</li>
-                    <li>(Common) Java 11.0.16.1 (Temurin)</li>
-                    <li>(Common) Maven 3.8.4</li>
-                    <li>(Common) Mysql 5.7.42, Oracle 19, MariaDB 10.6.7, MySQL 8.0.35</li>
-                    <li>Sakai master - Tomcat 9.0.69 - Java 11.0.16</li>
-                    <li>Sakai 23 - Tomcat 9.0.69 - Java 11.0.16</li>
-                    <li>Sakai 22 - Tomcat 9.0.62 - Java 11.0.13</li>
-                    <li>Sakai 21 - Tomcat 9.0.62 - Java 1.8.0_312</li>
-                    <li>Sakai 20 - Tomcat 9.0.37 - Java 1.8.0_312</li>
-                </ul>
-            </li>
-        </ul>
-
-        <br>Problems? Contact sakai-core on <a href="https://groups.google.com/a/apereo.org/forum/#!forum/sakai-core">Google Groups</a> or on Slack at <a href="https://apereo.slack.com/">Apereo Slack</a> in #sakaidevs.
-        <br/><br/>
-
-
-    </body>
+    <div class="container-fluid mt-4 mb-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-secondary">
+                    <div class="d-flex align-items-center">
+                        <i class="bi bi-question-circle-fill text-primary me-3 fs-3"></i>
+                        <div>
+                            <strong>Need help?</strong> Contact sakai-core on
+                            <a class="alert-link"
+                               href="https://groups.google.com/a/apereo.org/forum/#!forum/sakai-core">
+                                <i class="bi bi-google me-1"></i>Google Groups
+                            </a>
+                            or on Slack at
+                            <a class="alert-link" href="https://apereo.slack.com/">
+                                <i class="bi bi-slack me-1"></i>Apereo Slack
+                            </a>
+                            in #sakaidevs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="bg-light py-3 mt-auto">
+    <div class="container-fluid">
+        <div class="text-center">
+            <small class="text-muted">© Sakai Project - Nightly Servers Configuration</small>
+        </div>
+    </div>
+</footer>
+</body>
 </html>
