@@ -1,4 +1,5 @@
 export UMASK='0022'
+CATALINA_PID=$CATALINA_BASE/sakai.pid
 
 CATALINA_OPTS="-server \
                -Djava.awt.headless=true \
