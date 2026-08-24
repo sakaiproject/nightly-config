@@ -45,7 +45,6 @@
         checkServerStatus('qa25mysql8', 'https://qa25-mysql8.nightly.sakaiproject.org');
         checkServerStatus('trunkmysql8', 'https://trunk-mysql8.nightly.sakaiproject.org');
         checkServerStatus('trunkmaria', 'https://trunk-maria.nightly.sakaiproject.org');
-        checkServerStatus('trunkoracle', 'https://trunk-oracle.nightly.sakaiproject.org');
         checkServerStatus('qa1us', 'https://qa1-us.nightly.sakaiproject.org');
         checkServerStatus('qa2us', 'https://qa2-us.nightly.sakaiproject.org');
         return false;
@@ -157,45 +156,6 @@
                         <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
                         <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
                         <td><a href="https://trunk-mysql8.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="bi bi-x-circle-fill text-danger" id="trunkoracle"
-                                  title="Server is offline"></span></td>
-                        <td><a href="https://trunk-oracle.nightly.sakaiproject.org/portal/">Trunk (master) on Oracle</a>
-                        </td>
-                        <td>
-                            <div aria-multiselectable="true" class="panel-group" id="accordion-trunkoracle"
-                                 role="tablist">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" id="describesakaimasteroracle" role="tab">
-                                        <div class="panel-title">
-                                            <a aria-controls="collapsesakaimasteroracle" aria-expanded="true"
-                                               data-bs-parent="#accordion-trunkoracle"
-                                               data-bs-toggle="collapse" href="#collapsesakaimasteroracle"
-                                               role="button">
-                                                Trunk/Master Oracle description
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div aria-labelledby="describesakaimasteroracle" class="panel-collapse collapse" id="collapsesakaimasteroracle"
-                                         role="tabpanel">
-                                        <div class="panel-body">
-                                            <p><strong>Trunk/Master should NOT be used for production
-                                                installations.</strong></p>
-                                            <p>Often used to verify improvements (bugs and features) which have been
-                                                resolved but not
-                                                tested. Contains the latest available patches for Sakai and is
-                                                constantly changing
-                                                (i.e., new patches for bug fixes and features every day).</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td><a href="https://trunk-oracle.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                        <td><a href="https://trunk-oracle.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                        <td><a href="https://trunk-oracle.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
                         </td>
                     </tr>
                     <tr class="table-secondary">
