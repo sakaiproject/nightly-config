@@ -40,13 +40,19 @@ if (( ${cleardb} == 1 )); then
     bin/clean-db.sh
 fi
 
-bin/clean-code.sh
-tar xzf /tmp/sakai25x.tar.gz
+if [ -s /tmp/sakai25x.tar.gz ]; then
+    echo "New build archive found. Updating code..."
+    bin/clean-code.sh
+    tar xzf /tmp/sakai25x.tar.gz
+else
+    echo "No new build archive found (/tmp/sakai25x.tar.gz). Skipping code cleanup."
+fi
+
 bin/start.sh
 
 if (( ${cleardb} == 1 )); then
     if [ -f "${DBSCRIPT}" ]; then
-    	sleep 15m 
+    	sleep 5m 
         mysql -f -h ${DBHOST} -u ${DBUSER} -p${DBPASS} ${DBNAME} -e "source ${DBSCRIPT}"
     fi
 fi
