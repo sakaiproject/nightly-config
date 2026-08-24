@@ -5,7 +5,7 @@
 #  BUILD_ID is neeeded so Jenkins ProcessTreeKiller doesn't kill off sakai
 BUILD_ID="bin/start.sh"
 
-CATALINA_BASE=/var/sakai-qa2
+CATALINA_BASE=/var/sakai-qa1
 cp catalina.properties  ${CATALINA_BASE}/conf/catalina.properties
 cp context.xml ${CATALINA_BASE}/conf/context.xml
 cp setenv.sh  ${CATALINA_BASE}/bin/setenv.sh
@@ -13,7 +13,7 @@ cp 25.properties ${CATALINA_BASE}/sakai/sakai.properties
 cd ${CATALINA_BASE}
 source bin/common.sh
 
-DBSCRIPT="${WORKSPACE}/25-mysql.sql"
+DBSCRIPT="${WORKSPACE}/23-mysql.sql"
 DBHOST=$(echo $PROPERTIES["url@javax.sql.BaseDataSource"] | $GREP_CMD -oP '(?<=:\/\/).+(?=:)')
 DBNAME=$(echo $PROPERTIES["url@javax.sql.BaseDataSource"] | $GREP_CMD -oP '(?<=\/)\w+(?=\?)')
 DBUSER=$PROPERTIES["username@javax.sql.BaseDataSource"]
@@ -40,12 +40,12 @@ if (( ${cleardb} == 1 )); then
     bin/clean-db.sh
 fi
 
-if [ -s /tmp/sakai-qa2.tar.gz ]; then
+if [ -s /tmp/sakai-qa1.tar.gz ]; then
     echo "New build archive found. Updating code..."
     bin/clean-code.sh
-    tar xzf /tmp/sakai-qa2.tar.gz
+    tar xzf /tmp/sakai-qa1.tar.gz
 else
-    echo "No new build archive found (/tmp/sakai-qa2.tar.gz). Skipping code cleanup."
+    echo "No new build archive found (/tmp/sakai-qa1.tar.gz). Skipping code cleanup."
 fi
 
 bin/start.sh
