@@ -3,7 +3,6 @@ CATALINA_PID=$CATALINA_BASE/sakai.pid
 
 CATALINA_OPTS="-server \
                -Djava.awt.headless=true \
-               -XX:+UseCompressedOops \
                -XX:+AlwaysPreTouch \
                -XX:+DisableExplicitGC \
                -Djava.net.preferIPv4Stack=true"
@@ -12,12 +11,12 @@ CATALINA_OPTS="-server \
 CATALINA_OPTS="$CATALINA_OPTS -Xms2g -Xmx2g"
 
 # Generational New size
-CATALINA_OPTS="$CATALINA_OPTS -XX:NewSize=500m -XX:MaxNewSize=500m"
+#CATALINA_OPTS="$CATALINA_OPTS -XX:NewSize=500m -XX:MaxNewSize=500m"
 
 # Garbage Collector
-CATALINA_OPTS="$CATALINA_OPTS -XX:+UseG1GC"
+#CATALINA_OPTS="$CATALINA_OPTS -XX:+UseG1GC"
 #CATALINA_OPTS="$CATALINA_OPTS -XX:+UseZGC"
-#CATALINA_OPTS="$CATALINA_OPTS -XX:+UseZGC -XX:+ZGenerational"
+CATALINA_OPTS="$CATALINA_OPTS -XX:+UseZGC -XX:+ZGenerational"
 #CATALINA_OPTS="$CATALINA_OPTS -XX:+UseShenandoahGC"
 #CATALINA_OPTS="$CATALINA_OPTS -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75"
 
@@ -26,33 +25,38 @@ CATALINA_OPTS="$CATALINA_OPTS -XX:+UseG1GC"
 
 # Java Modules
 JAVA_OPTS="$JAVA_OPTS \
-    --add-opens=java.base/jdk.internal.access=ALL-UNNAMED \
-    --add-opens=java.base/jdk.internal.misc=ALL-UNNAMED \
-    --add-opens=java.base/sun.nio.ch=ALL-UNNAMED \
-    --add-opens=java.base/sun.util.calendar=ALL-UNNAMED \
-    --add-opens=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED \
-    --add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED \
-    --add-opens=java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED \
-    --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED \
-    --add-opens=java.base/java.io=ALL-UNNAMED \
-    --add-opens=java.base/java.nio=ALL-UNNAMED \
-    --add-opens=java.base/java.net=ALL-UNNAMED \
-    --add-opens=java.base/java.util=ALL-UNNAMED \
-    --add-opens=java.base/java.util.concurrent=ALL-UNNAMED \
-    --add-opens=java.base/java.util.concurrent.locks=ALL-UNNAMED \
-    --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED \
-    --add-opens=java.base/java.lang=ALL-UNNAMED \
-    --add-opens=java.base/java.lang.invoke=ALL-UNNAMED \
-    --add-opens=java.base/java.math=ALL-UNNAMED \
-    --add-opens=java.sql/java.sql=ALL-UNNAMED \
-    --add-opens=java.base/java.lang.reflect=ALL-UNNAMED \
-    --add-opens=java.base/java.time=ALL-UNNAMED \
-    --add-opens=java.base/java.text=ALL-UNNAMED \
-    --add-opens=java.management/sun.management=ALL-UNNAMED \
-    --add-opens=java.desktop/java.awt.font=ALL-UNNAMED \
-    --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED \
-    --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED"
-
+        --add-opens=java.base/java.io=ALL-UNNAMED \
+        --add-opens=java.base/java.lang=ALL-UNNAMED \
+        --add-opens=java.base/java.lang.invoke=ALL-UNNAMED \
+        --add-opens=java.base/java.lang.reflect=ALL-UNNAMED \
+        --add-exports=java.base/java.lang.reflect=ALL-UNNAMED \
+        --add-opens=java.base/java.math=ALL-UNNAMED \
+        --add-opens=java.base/java.net=ALL-UNNAMED \
+        --add-opens=java.base/java.nio=ALL-UNNAMED \
+        --add-opens=java.base/java.text=ALL-UNNAMED \
+        --add-opens=java.base/java.time=ALL-UNNAMED \
+        --add-opens=java.base/java.util=ALL-UNNAMED \
+        --add-opens=java.base/java.util.concurrent=ALL-UNNAMED \
+        --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED \
+        --add-opens=java.base/java.util.concurrent.locks=ALL-UNNAMED \
+        --add-opens=java.base/jdk.internal.access=ALL-UNNAMED \
+        --add-opens=java.base/jdk.internal.misc=ALL-UNNAMED \
+        --add-exports=java.base/jdk.internal.misc=ALL-UNNAMED \
+        --add-opens=java.base/sun.nio.ch=ALL-UNNAMED \
+        --add-exports=java.base/sun.nio.ch=ALL-UNNAMED \
+        --add-opens=java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED \
+        --add-exports=java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED \
+        --add-opens=java.base/sun.util.calendar=ALL-UNNAMED \
+        --add-opens=java.desktop/java.awt.font=ALL-UNNAMED \
+        --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED \
+        --add-opens=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED \
+        --add-exports=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED \
+        --add-opens=java.management/sun.management=ALL-UNNAMED \
+        --add-opens=java.sql/java.sql=ALL-UNNAMED \
+        --add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED \
+        --add-exports=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED \
+        --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED \
+        --add-modules=jdk.incubator.vector"
 # Jasper config
 CATALINA_OPTS="$CATALINA_OPTS -Dorg.apache.jasper.compiler.Parser.STRICT_QUOTE_ESCAPING=false"
 
