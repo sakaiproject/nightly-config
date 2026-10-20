@@ -39,14 +39,10 @@
 
       function bodyOnLoad() {
         checkServerStatus('qa22mysql', 'https://qa22-mysql.nightly.sakaiproject.org');
-        checkServerStatus('qa23maria', 'https://qa23-maria.nightly.sakaiproject.org');
         checkServerStatus('qa23mysql8', 'https://qa23-mysql8.nightly.sakaiproject.org');
-        checkServerStatus('qa25maria', 'https://qa25-maria.nightly.sakaiproject.org');
         checkServerStatus('qa25mysql8', 'https://qa25-mysql8.nightly.sakaiproject.org');
         checkServerStatus('trunkmysql8', 'https://trunk-mysql8.nightly.sakaiproject.org');
-        checkServerStatus('trunkmaria', 'https://trunk-maria.nightly.sakaiproject.org');
         checkServerStatus('qa1us', 'https://qa1-us.nightly.sakaiproject.org');
-        checkServerStatus('qa2us', 'https://qa2-us.nightly.sakaiproject.org');
         return false;
       }
     </script>
@@ -78,45 +74,6 @@
                     <tbody>
                     <tr class="table-secondary">
                         <td colspan="6"><b>27 (Master) Test Instance(s) - Primary servers for QA testing fixed Jiras</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="bi bi-x-circle-fill text-danger" id="trunkmaria"
-                                  title="Server is offline"></span></td>
-                        <td><a href="https://trunk-maria.nightly.sakaiproject.org/portal/">Trunk (master) on MariaDB</a>
-                        </td>
-                        <td>
-                            <div aria-multiselectable="true" class="panel-group" id="accordion-trunkmaria"
-                                 role="tablist">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" id="describesakaimastermaria" role="tab">
-                                        <div class="panel-title">
-                                            <a aria-controls="collapsesakaimastermaria" aria-expanded="true"
-                                               data-bs-parent="#accordion-trunkmaria"
-                                               data-bs-toggle="collapse" href="#collapsesakaimastermaria"
-                                               role="button">
-                                                Trunk/Master MariaDB description
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div aria-labelledby="describesakaimastermaria" class="panel-collapse collapse" id="collapsesakaimastermaria"
-                                         role="tabpanel">
-                                        <div class="panel-body">
-                                            <p><strong>Trunk/Master should NOT be used for production
-                                                installations.</strong></p>
-                                            <p>Often used to verify improvements (bugs and features) which have been
-                                                resolved but not
-                                                tested. Contains the latest available patches for Sakai and is
-                                                constantly changing
-                                                (i.e., new patches for bug fixes and features every day).</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td><a href="https://trunk-maria.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                        <td><a href="https://trunk-maria.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                        <td><a href="https://trunk-maria.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
                         </td>
                     </tr>
                     <tr>
@@ -162,41 +119,6 @@
                         <td colspan="6"><b>25.x Test Instance(s)</b></td>
                     </tr>
                     <tr>
-                        <td><span class="bi bi-x-circle-fill text-danger" id="qa25maria"
-                                  title="Server is offline"></span></td>
-                        <td><a href="https://qa25-maria.nightly.sakaiproject.org/">25.x Maintenance Branch on
-                            MariaDB</a></td>
-                        <td>
-                            <div aria-multiselectable="true" class="panel-group" id="accordion-qa25maria"
-                                 role="tablist">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" id="describesakai25maria" role="tab">
-                                        <div class="panel-title">
-                                            <a aria-controls="collapsesakai25maria" aria-expanded="true"
-                                               data-bs-parent="#accordion-qa25maria"
-                                               data-bs-toggle="collapse" href="#collapsesakai25maria"
-                                               role="button">
-                                                25.x MariaDB description
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div aria-labelledby="describesakai25maria" class="panel-collapse collapse" id="collapsesakai25maria"
-                                         role="tabpanel">
-                                        <div class="panel-body">
-                                            <p>Contains the latest available patches for Sakai 25 that have been added
-                                                since the tagged
-                                                community release.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td><a href="https://qa25-maria.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                        <td><a href="https://qa25-maria.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                        <td><a href="https://qa25-maria.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
-                        </td>
-                    </tr>
-                    <tr>
                         <td><span class="bi bi-x-circle-fill text-danger" id="qa25mysql8"
                                   title="Server is offline"></span></td>
                         <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/">25.x Maintenance Branch on MySQL
@@ -231,76 +153,8 @@
                         <td><a href="https://qa25-mysql8.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td><span class="bi bi-x-circle-fill text-danger" id="qa2us" title="Server is offline"></span>
-                        </td>
-                        <td>
-                            <a href="https://qa2-us.nightly.sakaiproject.org/portal">25.2 on MariaDB</a></td>
-                        <td>
-                            <div aria-multiselectable="true" class="panel-group" id="accordion-qa2us" role="tablist">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" id="describesakaiqa2" role="tab">
-                                        <div class="panel-title">
-                                            <a aria-controls="collapsesakaiqa2" aria-expanded="true" data-bs-parent="#accordion-qa2us"
-                                               data-bs-toggle="collapse" href="#collapsesakaiqa2"
-                                               role="button">
-                                                Sakai 25.2 server description
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div aria-labelledby="describesakaiqa2" class="panel-collapse collapse" id="collapsesakaiqa2"
-                                         role="tabpanel">
-                                        <div class="panel-body">
-                                            <p>Sakai 25.2 is the latest stable release.</p>
-                                            <p>Data retention is managed manually for this QA server.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td><a href="https://qa2-us.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                        <td><a href="https://qa2-us.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                        <td>
-                            <a href="https://qa2-us.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
-                        </td>
-                    </tr>
                     <tr class="table-secondary">
                         <td colspan="6"><b>23.x Test Instance(s)</b></td>
-                    </tr>
-                    <tr>
-                        <td><span class="bi bi-x-circle-fill text-danger" id="qa23maria"
-                                  title="Server is offline"></span></td>
-                        <td><a href="https://qa23-maria.nightly.sakaiproject.org/">23.x Maintenance Branch on
-                            MariaDB</a></td>
-                        <td>
-                            <div aria-multiselectable="true" class="panel-group" id="accordion-qa23maria"
-                                 role="tablist">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" id="describesakai23maria" role="tab">
-                                        <div class="panel-title">
-                                            <a aria-controls="collapsesakai23maria" aria-expanded="true"
-                                               data-bs-parent="#accordion-qa23maria"
-                                               data-bs-toggle="collapse" href="#collapsesakai23maria"
-                                               role="button">
-                                                23.x MariaDB description
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div aria-labelledby="describesakai23maria" class="panel-collapse collapse" id="collapsesakai23maria"
-                                         role="tabpanel">
-                                        <div class="panel-body">
-                                            <p>Contains the latest available patches for Sakai 23 that have been added
-                                                since the tagged
-                                                community release.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td><a href="https://qa23-maria.nightly.sakaiproject.org/logs/">Tomcat Logs</a></td>
-                        <td><a href="https://qa23-maria.nightly.sakaiproject.org/tail/">Tail Catalina Log</a></td>
-                        <td><a href="https://qa23-maria.nightly.sakaiproject.org/sakai/sakai.properties">sakai.properties</a>
-                        </td>
                     </tr>
                     <tr>
                         <td><span class="bi bi-x-circle-fill text-danger" id="qa23mysql8"
@@ -354,7 +208,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div aria-labelledby="describesakaiqa2" class="panel-collapse collapse" id="collapsesakaiqa1"
+                                    <div aria-labelledby="describesakaiqa1" class="panel-collapse collapse" id="collapsesakaiqa1"
                                          role="tabpanel">
                                         <div class="panel-body">
                                             <p>Sakai 23.3 is the latest stable release.</p>
@@ -542,7 +396,7 @@
             <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item">
                     <i class="bi bi-arrow-repeat text-primary me-2"></i>
-                    <strong>Sakai trunk/master servers (MySQL and MariaDB)</strong> — Rebuilt daily at around 12PM and
+                    <strong>Sakai trunk/master server (MySQL)</strong> — Rebuilt daily at around 12PM and
                     12AM Eastern (Database cleared only at 12AM restart)
                 </li>
                 <li class="list-group-item">
@@ -586,7 +440,7 @@
                             <li class="list-group-item">(Common) Java 11.0.27 (Temurin)</li>
                             <li class="list-group-item">(Common) Java 17.0.15 (Temurin)</li>
                             <li class="list-group-item">(Common) Maven 3.9.9</li>
-                            <li class="list-group-item">(Common) MariaDB 10.6.25, MySQL 8.4.11</li>
+                            <li class="list-group-item">(Common) MySQL 8.4.11</li>
                             <li class="list-group-item">Sakai master - Tomcat 9.0.105 - Java 17</li>
                             <li class="list-group-item">Sakai 25 - Tomcat 9.0.105 - Java 17</li>
                             <li class="list-group-item">Sakai 23 - Tomcat 9.0.105 - Java 11</li>
