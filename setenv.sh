@@ -142,8 +142,10 @@ CATALINA_OPTS="$CATALINA_OPTS -Dsakai.cookieName=SAKAIID"
 #	                          -Dcom.sun.management.jmxremote.ssl=false \
 #	                          -Dcom.sun.management.jmxremote.authenticate=false" 
 
-# JDBC Driver MariaDB is distributed by default
-if [[ $(pwd) =~ "mysql8" ]]; then
+# JDBC Driver: MariaDB is distributed by default (in Tomcat's lib). Only MySQL needs an extra jar.
+# Decide from the datasource url in PROPERTIES, which common.sh loads from the Sakai properties files.
+if [[ "${PROPERTIES["url@javax.sql.BaseDataSource"]}" == jdbc:mysql:* ]]; then
     # MySQL 8 JDBC driver
     CLASSPATH="/var/jdbc-connectors/mysql-connector-j-8.0.31.jar"
+    echo "Datasource is MySQL, adding ${CLASSPATH}"
 fi
