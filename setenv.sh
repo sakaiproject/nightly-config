@@ -145,7 +145,7 @@ CATALINA_OPTS="$CATALINA_OPTS -Dsakai.cookieName=SAKAIID"
 # JDBC Driver: MariaDB is distributed by default (in Tomcat's lib). Only MySQL needs an extra jar.
 # catalina.sh sources this file under /bin/sh; keep it POSIX-compatible.
 # Read the URL from the properties file: CI does not load common.sh's PROPERTIES array.
-if grep -Eq '^[[:space:]]*url@javax[.]sql[.]BaseDataSource[[:space:]]*=[[:space:]]*jdbc:mysql:' "$CATALINA_BASE/sakai/sakai.properties"; then
+if grep -q 'BaseDataSource=jdbc:mysql:' "$CATALINA_BASE/sakai/sakai.properties"; then
     # MySQL 8 JDBC driver
     CLASSPATH="/var/jdbc-connectors/mysql-connector-j-8.0.31.jar"
     echo "Datasource is MySQL, adding ${CLASSPATH}"
